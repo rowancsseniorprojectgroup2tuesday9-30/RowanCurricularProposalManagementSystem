@@ -1,1 +1,3 @@
-1-26-19: Alex Kulpin: Project Initiation, and creation of repository
+1-26-19: Alex Kulpin: Project Initiation, and creation of repository.
+1-29-19: John Kubach: Alex, John, and Kyle meet with Dr. H and Professor Myers to discuss details and scope of project.
+1-29-19: John Kubach: Repo for backup script created. Initial script pushed.
