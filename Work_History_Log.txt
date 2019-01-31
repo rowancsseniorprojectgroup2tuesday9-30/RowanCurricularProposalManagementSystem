@@ -2,3 +2,4 @@
 1-29-19: John Kubach: Alex, John, and Kyle meet with Dr. H and Professor Myers to discuss details and scope of project.
 1-29-19: John Kubach: Repo for backup script created. Initial script pushed.
 1-30-19: Alex Kulpin: Initial Access database document created
+1-31-19: Had group meeting to set up plan and database structure
