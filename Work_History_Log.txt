@@ -3,3 +3,4 @@
 1-29-19: John Kubach: Repo for backup script created. Initial script pushed.
 1-30-19: Alex Kulpin: Initial Access database document created
 1-31-19: Jeffrey Podwats: Had group meeting to set up plan and database structure
+1-31-19: Alaina Smith: Document for Analysis and Design created.
