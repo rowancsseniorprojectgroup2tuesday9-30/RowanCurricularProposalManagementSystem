@@ -1,6 +1,6 @@
 # Project Summary
 
-The purpose of this system is to aid the faculity & staff members involved in 
+The purpose of this system is to aid the faculty & staff members involved in 
 curricular proposals. The system will store and keep revisions of the files 
 used in constructing a proposal. The system will also allow users to email 
 their complete proposals to other users for review.
@@ -40,7 +40,7 @@ between files.
 
 # Stretch Goals
 
-1) Google Oauth integration for login.
+1) Google OAuth integration for login.
 2) Integration with open source workflow creation tools.
 3) Automatically convert from multiple formats (.doc, .docx) to .pdf.
 4) Automatically notify relevant users of a proposal change.
