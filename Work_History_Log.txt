@@ -5,3 +5,4 @@
 1-31-19: Jeffrey Podwats: Had group meeting to set up plan and database structure
 1-31-19: Alaina Smith: Document for Analysis and Design created.
 2-03-19: Joshua Jackson: Spike was created because of ERD, Over the weekend learned how to use Access to create ERD.
+2-04-19: John Kubach: Commit project specification document.
