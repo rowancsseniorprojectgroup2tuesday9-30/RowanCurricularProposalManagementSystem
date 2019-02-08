@@ -7,3 +7,4 @@
 2-03-19: Joshua Jackson: Spike was created because of ERD, Over the weekend learned how to use Access to create ERD.
 2-04-19: John Kubach: Commit project specification document.
 2-07-19: Alaina Smith: Group meeting to discuss and finish working on ER Diagram.
+2-07-19: John Kubach: Finalize version 1.0 of ER diagram
