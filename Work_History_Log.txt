@@ -9,3 +9,8 @@
 2-07-19: Alaina Smith: Group meeting to discuss and finish working on ER Diagram.
 2-07-19: John Kubach: Finalize version 1.0 of ER diagram.
 2-11-19: John Kubach: Push initial database schema.
+2-12-19: John Kubach: Verison 2.0 of ER diagram.
+2-14-19: John Kubach: Group meeting. Outline initial schema diagram.
+2-20-19: John Kubach: Verison 3.0 of ER diagram & Schema diagram.
+2-20-19: John Kubach: Update database to match schema diagram.
+2-21-19: John Kubach: 1st sprint review. Demonstration of current database and backup solution.
