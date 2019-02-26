@@ -14,3 +14,4 @@
 2-20-19: John Kubach: Verison 3.0 of ER diagram & Schema diagram.
 2-20-19: John Kubach: Update database to match schema diagram.
 2-21-19: John Kubach: 1st sprint review. Demonstration of current database and backup solution.
+2-26-19: Joshua Jackson: Set-up Elvis dir. for scripts.
