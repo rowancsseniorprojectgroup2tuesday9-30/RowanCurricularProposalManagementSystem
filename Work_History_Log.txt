@@ -16,3 +16,4 @@
 2-21-19: John Kubach: 1st sprint review. Demonstration of current database and backup solution.
 2-26-19: Joshua Jackson: Set-up Elvis dir. for scripts.
 2-26-19: Joshua Jackson: Make a separate file for for connecting to database. Then use #include or for python something that has a similar ordeal.
+2-28-19: John Kubach: Push initial document archive script.
