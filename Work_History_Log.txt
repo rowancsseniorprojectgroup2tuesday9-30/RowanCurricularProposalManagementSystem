@@ -19,3 +19,6 @@
 2-28-19: John Kubach: Push initial document archive script.
 3-02-19: Alaina Smith: Layout ideas for Upload, Assemble, and Status pages uploaded.
 3-14-19: Alaina Smith: Version 2 of Upload, Download, and Status pages uploaded.
+3-26-19: John Kubach: Mid-review document submitted.
+3-27-19: John Kubach: Meeting with Justus Fee concerning AWS server / Flask.
+3-31-19: John Kubach: Database backup script implemented on AWS server.
