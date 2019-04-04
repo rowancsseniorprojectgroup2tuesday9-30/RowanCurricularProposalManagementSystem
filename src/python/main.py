@@ -17,10 +17,6 @@ app.config['MYSQL_DATABASE_DB'] = 'curricular_management'
 app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 mysql.init_app(app)
 
-
-# cursor.execute("SELECT * from proposal")
-# data = cursor.fetchone()
-
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 def allowed_file(filename):
@@ -51,17 +47,12 @@ def index():
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 
-            # doctype = request.form.get('doc_select') 
-
             if filename.endswith('.pdf'):
-                # doctype = "-s"
                 cmd = "./archiver.sh -n " + uname + " -f " + filename + " " + doctype
 
             if filename.endswith('.docx'):
                 conv = "soffice --convert-to pdf /tmp/" + filename + " --outdir " + UPLOAD_FOLDER + " --headless"
                 subprocess.call(conv, shell=True)
-                uname = "Kubach"
-                # doctype = "-s"
                 cmd = "./archiver.sh -n " + uname + " -f " + filename.replace(".docx",".pdf") + " " + doctype
 
             if filename.endswith('png'):
