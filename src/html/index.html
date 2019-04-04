@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+body, html 
+{
+	background: #FFF3DD;
+	background-color: #FFF3DD;
+	height: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 0px;
+	font-family: Arial;
+}
+
+div 
+{
+	height: 100px;
+	width: 1000px;
+	padding: 10px;
+	border: 5px solid #57150B;
+	border-top: 50px solid #57150B;
+	margin-top: 0px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.button 
+{
+	background-color: #57150B;
+	border: none;
+	color: #FFDD4D;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
+}
+
+.input
+{
+	background-color: #57150B;
+	border: none;
+	color: #FFDD4D;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
+}
+
+h1 
+{ 
+	color: #57150B;
+	margin-left: auto;
+	margin-right: auto;
+}
+h2 
+{ 
+	color: #57150B; 
+	margin-left: auto;
+	margin-right: auto;
+}
+h3 
+{ 
+	color: #57150B; 
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.tablink 
+{
+	background-color: #57150B;
+	color: #FFCC00;
+	float: left;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	padding: 14px 16px;
+	font-size: 17px;
+	width: 25%;
+}
+
+.tablink:hover 
+{
+	background-color: #FFCC00;
+	color: #57150B;
+}
+
+.tabcontent 
+{
+	color: #57150B;
+	display: none;
+	padding: 20px 20px;
+	height: 100%;
+}
+
+#Home {background-color: white;}
+#Download {background-color: white;}
+#Upload {background-color: white;}
+#Status {background-color: white;}
+
+</style>
+</head>
+
+<body>
+
+<button class="tablink" onclick="openPage('Home', this, '#57150B')" id="defaultOpen">Home</button>
+<button class="tablink" onclick="openPage('Upload', this, '#57150B')">Upload</button>
+<button class="tablink" onclick="openPage('Download', this, '#57150B')">Download</button>
+<button class="tablink" onclick="openPage('Status', this, '#57150B')">Status</button>
+
+<!––The Home page––> 
+<div id="Home" class="tabcontent">
+	<center>
+	<img src="static/img/Rowan_University_seal.svg.png" alt="Rowan University">
+	<h1>Rowan Curricular Proposal Management System</h1>	
+	</center>
+</div>
+
+<!––The Download page––> 
+<div id="Download" class="tabcontent">
+	<center>
+	<h1>Download Page</h1>
+	</center>
+
+	<h3>Proposal</h3>
+
+	<select>
+		<option value="p1">Proposal 1</option>
+		<option value="p2">Proposal 2</option>
+		<option value="p3">Proposal 3</option>
+		<option value="p4">Proposal 4</option>
+	</select>
+
+	<h3>Cover Sheet</h3>
+
+	<select>
+		<option value="v1">Version 1</option>
+		<option value="v2">Version 2</option>
+	</select>
+
+	<h3>Library Form</h3>
+
+	<select>
+		<option value="v1">Version 1</option>
+		<option value="v2">Version 2</option>
+	</select>
+
+	<h3>Template</h3>
+
+	<select>
+		<option value="v1">Version 1</option>
+		<option value="v2">Version 2</option>
+	</select>
+
+	<h3>Supporting Documents</h3>
+
+	<select>
+		<option value="v1">Version 1</option>
+		<option value="v2">Version 2</option>
+	</select>
+
+	<h3>Program Guide</h3>
+
+	<select>
+		<option value="v1">Version 1</option>
+		<option value="v2">Version 2</option>
+	</select>
+
+	<h1>
+		<a href="#" class="button">Download</a>
+	</h1>
+</div>
+
+<!––The Upload page––> 
+<div id="Upload" class="tabcontent">
+	<center>
+	<h1>Upload Page</h1>
+	</center>
+
+	<form action="" method="POST" enctype=multipart/form-data>
+	<h3>Proposal</h3>
+
+	<select>
+		<option value="p1">Proposal 1</option>
+		<option value="p2">Proposal 2</option>
+		<option value="p3">Proposal 3</option>
+		<option value="p4">Proposal 4</option>
+	</select>
+
+		<h3>Document Name</h3>
+		<input type="text" name="document_name"><br>
+
+	<h3>Document Type</h3>
+
+    <!-- <form action=" {{url_for('index') }}" method="POST" > -->
+    <select name="doc_select">
+		<option value="-a" selected="selected">Assessement Form</option>
+		<option value="-l">Library Form</option>
+		<option value="-s">Supporting Document</option>
+		<option value="-p">Program Guide</option>
+	</select>
+
+	<h3>Attach Files</h3>
+
+		<p>
+		<input type=file name=file>
+		</p>
+
+		<h3>Comments</h3>
+		<textarea name="comments" cols="100" rows="10"></textarea><br>
+	
+	<h1>
+        <input class="button" type=submit value=Upload>
+	</h1>
+</div>
+    </form>
+
+
+<!––The Status page––> 
+<div id="Status" class="tabcontent">
+	<center>
+	<h1>Status Page</h1>
+	</center>
+
+	<h3>Proposal</h3>
+
+	<select>
+		<option value="p1">Proposal 1</option>
+		<option value="p2">Proposal 2</option>
+		<option value="p3">Proposal 3</option>
+		<option value="p4">Proposal 4</option>
+	</select>
+
+	<h3>Cover Sheet</h3>
+
+	<h3>Library Form</h3>
+
+	<h3>Template</h3>
+
+	<h3>Supporting Documents</h3>
+
+	<h3>Program Guide</h3>
+</div>
+</body>
+
+
+<script>
+
+function openPage(pageName, elmnt, color) 
+{
+	var i, tabcontent, tablinks;
+	tabcontent = document.getElementsByClassName("tabcontent");
+	for (i = 0; i < tabcontent.length; i++) 
+	{
+		tabcontent[i].style.display = "none";
+	}
+
+	tablinks = document.getElementsByClassName("tablink");
+	for (i = 0; i < tablinks.length; i++) 
+	{
+		tablinks[i].style.backgroundColor = "";
+	}
+
+	document.getElementById(pageName).style.display = "block";
+
+	elmnt.style.backgroundColor = color;
+}
+
+document.getElementById("defaultOpen").click();
+
+</script>
