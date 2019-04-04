@@ -1,5 +1,6 @@
 import os
 import subprocess
+import img2pdf
 from flask import Flask, request, redirect, url_for, send_from_directory
 from flaskext.mysql import MySQL
 from werkzeug import secure_filename
@@ -15,11 +16,9 @@ app.config['MYSQL_DATABASE_DB'] = 'curricular_management'
 app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 mysql.init_app(app)
 
-conn = mysql.connect()
-cursor =conn.cursor()
 
-cursor.execute("SELECT * from proposal")
-data = cursor.fetchone()
+# cursor.execute("SELECT * from proposal")
+# data = cursor.fetchone()
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
@@ -29,6 +28,8 @@ def allowed_file(filename):
 
 @app.route("/", methods=['GET', 'POST'])
 def index():
+    conn = mysql.connect()
+    cursor =conn.cursor()
     if request.method == 'POST':
         file = request.files['file']
         if file and allowed_file(file.filename):
@@ -39,13 +40,6 @@ def index():
                 uname = "Kubach"
                 doctype = "-s"
                 cmd = "./archiver.sh -n " + uname + " -f " + filename + " " + doctype
-                subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE)
-                cursor.execute("INSERT INTO assessement_form_revision (assessement_form_id, assessement_form_file_path, assessement_form_datetime) values (1, 'test', NOW())")
-                res = cursor.fetchall()
-
-                for x in res:
-                    print(x)
-
 
             if filename.endswith('.docx'):
                 conv = "soffice --convert-to pdf /tmp/" + filename + " --outdir " + UPLOAD_FOLDER + " --headless"
@@ -53,19 +47,20 @@ def index():
                 uname = "Kubach"
                 doctype = "-s"
                 cmd = "./archiver.sh -n " + uname + " -f " + filename.replace(".docx",".pdf") + " " + doctype
-                subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE)
-            
 
             if filename.endswith('png'):
                 conv = "convert" + filename + " --path " + UPLOAD_FOLDER + " --headless"
                 subprocess.call(conv, shell=True)
                 
+            newFilename = subprocess.Popen(cmd, stdout=subprocess.PIPE, shell=True)
+            cursor.execute("""INSERT INTO assessement_form_revision (assessement_form_id, assessement_form_file_path, assessement_form_datetime) values (1, %s, NOW())""", newFilename.stdout.readlines()[0].strip())
+            conn.commit()
 
             return redirect(url_for('index'))
     return """
     <!doctype html>
-    <title>Upload Cover Sheet</title>
-    <h1>Upload Cover Sheet</h1>
+    <title>Upload Assessment Form</title>
+    <h1>Upload Assessment Form</h1>
     <form action="" method=post enctype=multipart/form-data>
       <p><input type=file name=file>
          <input type=submit value=Upload>
