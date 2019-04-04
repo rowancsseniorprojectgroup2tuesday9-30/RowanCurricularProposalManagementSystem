@@ -12,14 +12,14 @@ EMPLOYEE=""
 # -c : [c]onsult letter
 # -n : uploader last [n]ame
 
-while getopts ":n:f:sltpc" opt
+while getopts ":n:f:alspc" opt
 do
     case "${opt}" in
         n) EMPLOYEE=${OPTARG};;
         f) FILE=${OPTARG};;
-        s) DOCTYPE="Cover_Sheet";;
+        a) DOCTYPE="Assessement_Form";;
         l) DOCTYPE="Lib_Form";;
-        t) DOCTYPE="Template";;
+        s) DOCTYPE="Supporting_Doc";;
         p) DOCTYPE="Pgrm_Guide";;
         c) DOCTYPE="Consult_Letter";;
     esac
