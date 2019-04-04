@@ -20,3 +20,4 @@
 3-02-19: Alaina Smith: Layout ideas for Upload, Assemble, and Status pages uploaded.
 3-14-19: Alaina Smith: Version 2 of Upload, Download, and Status pages uploaded.
 4-02-19: Alex Kulpin: Initial HTML design for the front end
+4-04-19: Alex Kulpin: HTML front end proposal information
