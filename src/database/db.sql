@@ -1,3 +1,4 @@
+SET FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS `consult_letter`;
 
 CREATE TABLE `consult_letter` (
@@ -22,22 +23,22 @@ CREATE TABLE `consult_letter_revision` (
   CONSTRAINT `consult_letter_revision_ibfk_1` FOREIGN KEY (`consult_letter_id`) REFERENCES `consult_letter` (`consult_letter_id`)
 );
 
-DROP TABLE IF EXISTS `cover_sheet`;
+DROP TABLE IF EXISTS `assessement_form`;
 
-CREATE TABLE `cover_sheet` (
-  `cover_sheet_id` smallint(6) UNSIGNED NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`cover_sheet_id`)
+CREATE TABLE `assessement_form` (
+  `assessement_form_id` smallint(6) UNSIGNED NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`assessement_form_id`)
 );
 
-DROP TABLE IF EXISTS `cover_sheet_revision`;
+DROP TABLE IF EXISTS `assessement_form_revision`;
 
-CREATE TABLE `cover_sheet_revision` (
-  `cover_sheet_id` smallint(6) UNSIGNED NOT NULL,
-  `cover_sheet_file_path` varchar(255) NOT NULL,
-  `cover_sheet_datetime` datetime NOT NULL,
-  PRIMARY KEY (`cover_sheet_id`, `cover_sheet_datetime`),
-  KEY `cover_sheet_id` (`cover_sheet_id`),
-  CONSTRAINT `cover_sheet_revision_ibfk_1` FOREIGN KEY (`cover_sheet_id`) REFERENCES `cover_sheet` (`cover_sheet_id`)
+CREATE TABLE `assessement_form_revision` (
+  `assessement_form_id` smallint(6) UNSIGNED NOT NULL,
+  `assessement_form_file_path` varchar(255) NOT NULL,
+  `assessement_form_datetime` datetime NOT NULL,
+  PRIMARY KEY (`assessement_form_id`, `assessement_form_datetime`),
+  KEY `assessement_form_id` (`assessement_form_id`),
+  CONSTRAINT `assessement_form_revision_ibfk_1` FOREIGN KEY (`assessement_form_id`) REFERENCES `assessement_form` (`assessement_form_id`)
 );
 
 DROP TABLE IF EXISTS `employee`;
@@ -76,9 +77,9 @@ DROP TABLE IF EXISTS `proposal`;
 
 CREATE TABLE `proposal` (
   `proposal_id` smallint(6) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `cover_sheet_id` smallint(6) UNSIGNED DEFAULT NULL,
+  `assessement_form_id` smallint(6) UNSIGNED DEFAULT NULL,
   `library_form_id` smallint(6) UNSIGNED DEFAULT NULL,
-  `template_id` smallint(6) UNSIGNED DEFAULT NULL,
+  `supporting_document_id` smallint(6) UNSIGNED DEFAULT NULL,
   `program_guide_id` smallint(6) UNSIGNED DEFAULT NULL,
   `proposal_datetime` datetime NOT NULL,
   `revision_note` varchar(255) DEFAULT NULL,
@@ -86,14 +87,13 @@ CREATE TABLE `proposal` (
   `proposal_description` varchar(255) DEFAULT NULL,
   `need_library_form` tinyint(4) UNSIGNED NOT NULL,
   `need_program_guide` tinyint(4) UNSIGNED NOT NULL,
-  `cover_type` char(1) NOT NULL,
-  `template_type` char(1) NOT NULL,
+  `proposal_type` char(1) NOT NULL,
   PRIMARY KEY (`proposal_id`),
-  KEY `cover_sheet_id` (`cover_sheet_id`),
-  KEY `template_id` (`template_id`),
+  KEY `assessement_form_id` (`assessement_form_id`),
+  KEY `supporting_document_id` (`supporting_document_id`),
   KEY `library_form_id` (`library_form_id`),
-  CONSTRAINT `proposal_ibfk_1` FOREIGN KEY (`cover_sheet_id`) REFERENCES `cover_sheet` (`cover_sheet_id`),
-  CONSTRAINT `proposal_ibfk_2` FOREIGN KEY (`template_id`) REFERENCES `template` (`template_id`),
+  CONSTRAINT `proposal_ibfk_1` FOREIGN KEY (`assessement_form_id`) REFERENCES `assessement_form` (`assessement_form_id`),
+  CONSTRAINT `proposal_ibfk_2` FOREIGN KEY (`supporting_document_id`) REFERENCES `supporting_document` (`supporting_document_id`),
   CONSTRAINT `proposal_ibfk_3` FOREIGN KEY (`library_form_id`) REFERENCES `library_form` (`library_form_id`)
 );
 
@@ -110,22 +110,22 @@ CREATE TABLE `sponsor` (
   CONSTRAINT `sponsor_ibfk_2` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`employee_id`)
 );
 
-DROP TABLE IF EXISTS `template`;
+DROP TABLE IF EXISTS `supporting_document`;
 
-CREATE TABLE `template` (
-  `template_id` smallint(6) UNSIGNED NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`template_id`)
+CREATE TABLE `supporting_document` (
+  `supporting_document_id` smallint(6) UNSIGNED NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`supporting_document_id`)
 );
 
-DROP TABLE IF EXISTS `template_revision`;
+DROP TABLE IF EXISTS `supporting_document_revision`;
 
-CREATE TABLE `template_revision` (
-  `template_id` smallint(6) UNSIGNED NOT NULL,
-  `template_file_path` varchar(255) NOT NULL,
-  `template_datetime` datetime NOT NULL,
-  PRIMARY KEY (`template_id`, `template_datetime`),
-  KEY `template_id` (`template_id`),
-  CONSTRAINT `template_revision_ibfk_1` FOREIGN KEY (`template_id`) REFERENCES `template` (`template_id`)
+CREATE TABLE `supporting_document_revision` (
+  `supporting_document_id` smallint(6) UNSIGNED NOT NULL,
+  `supporting_document_file_path` varchar(255) NOT NULL,
+  `supporting_document_datetime` datetime NOT NULL,
+  PRIMARY KEY (`supporting_document_id`, `supporting_document_datetime`),
+  KEY `supporting_document_id` (`supporting_document_id`),
+  CONSTRAINT `supporting_document_revision_ibfk_1` FOREIGN KEY (`supporting_document_id`) REFERENCES `supporting_document` (`supporting_document_id`)
 );
 
 DROP TABLE IF EXISTS `program_guide`;
