@@ -26,6 +26,9 @@ do
 done
 shift $((OPTIND -1))
 
-mv $FILE $EMPLOYEE\_$DOCTYPE\_$TIMESTAMP
+NEWFILE=$EMPLOYEE\_$DOCTYPE\_$TIMESTAMP.pdf
+
+mv $FILE $NEWFILE
+echo $NEWFILE
 
 exit 0
