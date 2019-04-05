@@ -22,3 +22,4 @@
 3-26-19: John Kubach: Mid-review document submitted.
 3-27-19: John Kubach: Meeting with Justus Fee concerning AWS server / Flask.
 3-31-19: John Kubach: Database backup script implemented on AWS server.
+4-02-19: Alex Kulpin: Initial HTML design for the front end.
