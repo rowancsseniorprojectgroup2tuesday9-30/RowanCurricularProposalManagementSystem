@@ -124,16 +124,85 @@ h4
 <!––The Home page––> 
 <div id="Home" class="tabcontent">
 	<center>
-	<img src="Rowan_University_seal.svg.png" alt="Rowan University">
+	<img src="img/Rowan_University_seal.svg.png" alt="Rowan University">
 	<h1>Rowan Curricular Proposal Management System</h1>	
 	</center>
 	
+	<a id="fadeableMain2" style="display: block;">
+	
+	<h4>Select Your Department:
+	<select  id="department">
+		<option disabled selected value> -- select an option -- </option>
+		<option value="af">Accounting & Finance</option>
+		<option value="a">Art</option>
+		<option value="b">Biology</option>
+		<option value="be">Biomedical Engineering</option>
+		<option value="ce">Chemical Engineering</option>
+		<option value="cb">Chemistry & Biochemistry</option>
+		<option value="cee">Civil & Environmental Eng.</option>
+		<option value="cs">Communication Studies</option>
+		<option value="cs">Computer Science</option>
+		<option value="esl">Ed Services & Leadership</option>
+		<option value="ece">Electrical & Computer Engin</option>
+		<option value="e">English</option>
+		<option value="es">Environmental Science</option>
+		<option value="eee">Experiential Engineering Education</option>
+		<option value="gps">Geography Pling & Sustainablty</option>
+		<option value="g">Geology</option>
+		<option value="hes">Health & Exercise Science</option>
+		<option value="h">History</option>
+		<option value="h">Honors</option>
+		<option value="iie">Interdiscipl. & Inclusive Edu</option>
+		<option value="j">Journalism</option>
+		<option value="llse">Lang Lit & Sociocultural Edu</option>
+		<option value="lj">Law/ Justice</option>
+		<option value="me">Management & Entrepreneurship</option>
+		<option value="mbis">Marketing & Buisness Info Sys</option>
+		<option value="m">Mathematics</option>
+		<option value="me">Mechanical Engineering</option>
+		<option value="mcb">Molecular & Cellular Biosci</option>
+		<option value="m">Music</option>
+		<option value="n">Nursing</option>
+		<option value="pr">Philosophy-Religion</option>
+		<option value="pa">Physics & Astronomy</option>
+		<option value="pse">Political Science & Economics</option>
+		<option value="p">Psychology</option>
+		<option value="pra">Public Relations-Advertising</option>
+		<option value="rtf">Radio/TV/Film</option>
+		<option value="steam">Sci Tech Eng Art & Math = STEAM</option>
+		<option value="sa">Sociology & Anthropology</option>
+		<option value="td">Theatre-Dance</option>
+		<option value="wl">World Languages</option>
+		<option value="wa">Writing Arts</option>
+	</select>
+	</h4>
+		
+	<h4>Password:
+		<input type="password" name="pwd" id="pwd" value=""></input>
+	</h4>
+	
+	</a>
+	
+	<center>
+	<h1>
+		<a href="#" class="button" onclick="mainappear(pwd, department, this);">Enter</a>
+	</h1>
+	</center>
+	
+	<center>
+	<h2>
+		<a id="department_name"></a>
+	</h2>
+	</center>
+	
+	<a id="fadeableMain" style="display: none;">
+	
 	<h4>Sponsor:
-	<input type="text" name="cosponsor"><br>
+	<input type="text" name="sponsor"><br>
 	</h4>
 	
 	<h4>Sponsor's Email Address:
-	<input type="text" name="cosponsor_email"><br>
+	<input type="text" name="sponsor_email"><br>
 	</h4>
 	
 	<h4>Co-Sponsor:
@@ -170,53 +239,6 @@ h4
 	</select>
 	</h4>
 	
-	<h4>Proposing Department:
-	<select>
-		<option disabled selected value> -- select an option -- </option>
-		<option value="department_1">Accounting & Finance</option>
-		<option value="department_2">Art</option>
-		<option value="department_3">Biology</option>
-		<option value="department_4">Biomedical Engineering</option>
-		<option value="department_5">Chemical Engineering</option>
-		<option value="department_6">Chemistry & Biochemistry</option>
-		<option value="department_7">Civil & Environmental Eng.</option>
-		<option value="department_8">Communication Studies</option>
-		<option value="department_9">Computer Science</option>
-		<option value="department_10">Ed Services & Leadership</option>
-		<option value="department_11">Electrical & Computer Engin</option>
-		<option value="department_12">English</option>
-		<option value="department_13">Environmental Science</option>
-		<option value="department_14">Experiential Engineering Education</option>
-		<option value="department_15">Geography Pling & Sustainablty</option>
-		<option value="department_16">Geology</option>
-		<option value="department_17">Health & Exercise Science</option>
-		<option value="department_18">History</option>
-		<option value="department_19">Honors</option>
-		<option value="department_20">Interdiscipl. & Inclusive Edu</option>
-		<option value="department_21">Journalism</option>
-		<option value="department_22">Lang Lit & Sociocultural Edu</option>
-		<option value="department_23">Law/ Justice</option>
-		<option value="department_24">Management & Entrepreneurship</option>
-		<option value="department_25">Marketing & Buisness Info Sys</option>
-		<option value="department_26">Mathematics</option>
-		<option value="department_27">Mechanical Engineering</option>
-		<option value="department_28">Molecular & Cellular Biosci</option>
-		<option value="department_29">Music</option>
-		<option value="department_30">Nursing</option>
-		<option value="department_31">Philosophy-Religion</option>
-		<option value="department_32">Physics & Astronomy</option>
-		<option value="department_33">Political Science & Economics</option>
-		<option value="department_34">Psychology</option>
-		<option value="department_35">Public Relations-Advertising</option>
-		<option value="department_36">Radio/TV/Film</option>
-		<option value="department_37">Sci Tech Eng Art & Math = STEAM</option>
-		<option value="department_38">Sociology & Anthropology</option>
-		<option value="department_39">Theatre-Dance</option>
-		<option value="department_40">World Languages</option>
-		<option value="department_41">Writing Arts</option>
-	</select>
-	</h4>
-	
 	<h4>Curriculum Change Proposal Type:
 	<select onchange="fieldappear(this);">
 		<option disabled selected value> -- select an option -- </option>
@@ -228,6 +250,8 @@ h4
 		<option value="form_F">Quasi Cerricular Proposal</option>
 	</select>
 	</h4>
+	
+	</a>
 
 	<a id="fadeableA" style="display: none;">
 	
@@ -1138,6 +1162,23 @@ function fieldappear(that)
 		document.getElementById("fadeableD").style.display = "none";
 		document.getElementById("fadeableE").style.display = "none";
 		document.getElementById("fadeableF").style.display = "none";
+    }
+}
+
+function mainappear(pass, dep, that) 
+{
+    if (pass.value == dep.value && pass.value != "") 
+	{
+        document.getElementById("fadeableMain").style.display = "block";
+		document.getElementById("fadeableMain2").style.display = "none";
+		document.getElementById("department_name").text = dep.value;
+		that.style.display = "none";
+    } 
+	else 
+	{
+		document.getElementById("fadeableMain").style.display = "none";
+		document.getElementById("fadeableMain2").style.display = "block";
+		alert("wrong password");
     }
 }
 
