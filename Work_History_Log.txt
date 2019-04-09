@@ -24,4 +24,5 @@
 3-31-19: John Kubach: Database backup script implemented on AWS server.
 4-02-19: Alex Kulpin: Initial HTML design for the front end
 4-04-19: Alex Kulpin: HTML front end proposal information
+4-04-19: Joshua Jackson: Style.css file 
 4-05-19: Alex Kulpin: HTML front end password and department inputs
