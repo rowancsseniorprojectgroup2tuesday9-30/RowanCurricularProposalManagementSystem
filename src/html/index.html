@@ -1,27 +1,49 @@
 <!DOCTYPE html>
 <html>
+<!-------------------------------------------------------------------------------
+
+Rowan Computer Science Dept Spring 2019 Senior Project Team
+Rowan Curricular Proposal Mangagement System for Jack Myers rowan
+
+Senior Team Members:
+Team Lead:  John Kubach
+ Scrum Master:  Joshua Jackson
+    Developer:  Alex Kulplin
+    Developer:  Jeffrey Podwats
+    Developer:  Alaina Smith
+    Developer:  Kyle Butera
+
+-----------------------------------------------------------------------------
+
+Description:
+ For Front end we are using html java script and python for now.
+ Our goal is to get it to just using python.
+ Last edit: 4/3/19
+------------------------------------------------------------------------------->
 <head>
 	<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-
+<!--==============$$ Start of buttons $$==================================-->
 <button class="tablink" onclick="openPage('Home', this, '#57150B')" id="defaultOpen">Home</button>
 <button class="tablink" onclick="openPage('Upload', this, '#57150B')">Upload</button>
 <button class="tablink" onclick="openPage('Download', this, '#57150B')">Download</button>
 <button class="tablink" onclick="openPage('Status', this, '#57150B')">Status</button>
+<!--=============## end ##================================================-->
 
-
-
+<!--==============$$ Start Of Home Page $$================================-->
 <!––The Home page––> 
 <div id="Home" class="tabcontent">
+	<!--======= Image For Home page =======-->
 	<center>
 	<img src="img/Rowan_University_seal.svg.png" alt="Rowan University">
 	<h1>Rowan Curricular Proposal Management System</h1>	
 	</center>
 	
 	<a id="fadeableMain2" style="display: block;">
-	
+
+	<!--===== Options for your deparment choice so you can login =======-->
 	<h4>Select Your Department:
 	<select  id="department">
 		<option disabled selected value> -- select an option -- </option>
@@ -68,19 +90,21 @@
 		<option value="wa">Writing Arts</option>
 	</select>
 	</h4>
-		
+
+	<!--========== Password word lock on Home Page ==============-->
 	<h4>Password:
 		<input type="password" name="pwd" id="pwd" value=""></input>
 	</h4>
 	
 	</a>
-	
+	<!--====== Enter button for the password that you input =======-->
 	<center>
 	<h1>
 		<a href="#" class="button" onclick="mainappear(pwd, department, this);">Enter</a>
 	</h1>
 	</center>
 	
+	<!--========= Fields that can be found after entering password ============-->
 	<center>
 	<h2>
 		<a id="department_name"></a>
@@ -114,7 +138,9 @@
 		<option value="201920">201920 SPRING 2019</option>
 	</select>
 	</h4>
-	
+	<!--==========## end of fields after login  ##==========-->
+
+	<!---->
 	<h4>Proposing School/College:
 	<select>
 		<option disabled selected value> -- select an option -- </option>
@@ -375,8 +401,9 @@
 	<a id="fadeableC" style="display: none;">
 	
 		<br>
+<!--===================$$ Options for Degree information $$================================-->
 		<h2>Degree Program Information</h2>
-		
+
 		<h4>Degree Program Credentials:
 		<select>
 			<option disabled selected value> -- select an option -- </option>
@@ -408,6 +435,7 @@
 			<option value="dpc_concentration">Concentration</option>
 			<option value="dpc_postbacc">Post-Bacc</option>
 		</select>
+<!--===============## end of options ##=========================================-->
 		</h4>
 		
 		<h4>Degree Program Name:
@@ -830,7 +858,9 @@
 	</a>
 	
 </div>
+<!--=================## end ##=========================================-->
 
+<!--=================$$ Start Of Download $$===========================-->
 <!––The Download page––> 
 <div id="Download" class="tabcontent">
 	<center>
@@ -887,7 +917,9 @@
 	
 	</center>
 </div>
+<!--====================## end ##===========================-->
 
+<!--==============$$ Start of Upload Page $$========================-->
 <!––The Upload page––> 
 <div id="Upload" class="tabcontent">
 	<center>
@@ -936,8 +968,9 @@
 	</h1>
 	</center>
 </div>
+<!--=======================## end ##==============================================================-->
 
-
+<!--=====================$$ Start of Status Page $$===============================================-->
 <!––The Status page––> 
 <div id="Status" class="tabcontent">
 	<center>
@@ -968,7 +1001,7 @@
 	<h3>Program Guide</h3>
 </div>
 </body>
-
+<!--========================## end ##===============================================================-->
 
 <script type="text/javascript" src="javascript.js"></script>
 
