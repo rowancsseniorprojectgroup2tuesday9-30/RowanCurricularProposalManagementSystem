@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<body>
+<style>
+	"body, html
+	{
+		background: #FFF3DD;
+		background-color: #FFF3DD;
+		height: 100%;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 0px;
+		font-family: Arial;
+	}
+	
+	div 
+	{
+		height: 100px;
+		width: 1000px;
+		padding: 10px;
+		border: 5px solid #57150B;
+		border-top: 50px solid #57150B;
+		margin-top: 0px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.button 
+	{
+		background-color: #57150B;
+		border: none;
+		color: #FFDD4D;
+		padding: 15px 32px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 16px;
+		margin: 4px 2px;
+		cursor: pointer;
+	}
+
+	.input
+	{
+		background-color: #57150B;
+		border: none;
+		color: #FFDD4D;
+		padding: 15px 32px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 16px;
+		margin: 4px 2px;
+		cursor: pointer;
+	}
+
+	h1 
+	{ 
+		color: #57150B;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	h2 
+	{ 
+		color: #57150B; 
+		margin-left: auto;
+		margin-right: auto;
+	}
+	
+	h3 
+	{ 
+		color: #57150B; 
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	h4 
+	{ 
+		color: #57150B; 
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.tablink 
+	{
+		background-color: #57150B;
+		color: #FFCC00;
+		float: left;
+		border: none;
+		outline: none;
+		cursor: pointer;
+		padding: 14px 16px;
+		font-size: 17px;
+		width: 25%;
+	}
+
+	.tablink:hover 
+	{
+		background-color: #FFCC00;
+		color: #57150B;
+	}
+
+	.tabcontent 
+	{
+		color: #57150B;
+		display: none;
+		padding: 20px 20px;
+		height: auto;
+	}
+
+#Home {background-color: white;}
+#Download {background-color: white;}
+#Upload {background-color: white;}
+#Status {background-color: white;}
+"
+</style>
+</body>
+</head>
+</html>
