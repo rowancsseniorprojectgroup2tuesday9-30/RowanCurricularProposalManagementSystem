@@ -26,3 +26,5 @@
 4-04-19: Alex Kulpin: HTML front end proposal information
 4-04-19: Joshua Jackson: Style.css file 
 4-05-19: Alex Kulpin: HTML front end password and department inputs
+4-05-19: Joshua Jackson: working on graphics for website and for status page
+4-05-19: Joshua Jackson: commenting and cleaning code up for HTML and Scripting
