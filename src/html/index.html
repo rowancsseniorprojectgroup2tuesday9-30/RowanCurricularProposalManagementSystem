@@ -72,15 +72,12 @@ h3
 	margin-left: auto;
 	margin-right: auto;
 }
-<<<<<<< HEAD
 h4 
 { 
 	color: #57150B; 
 	margin-left: auto;
 	margin-right: auto;
 }
-=======
->>>>>>> HTML-designs
 
 .tablink 
 {
@@ -106,11 +103,8 @@ h4
 	color: #57150B;
 	display: none;
 	padding: 20px 20px;
-<<<<<<< HEAD
 	height: auto;
-=======
 	height: 100%;
->>>>>>> HTML-designs
 }
 
 #Home {background-color: white;}
@@ -131,7 +125,6 @@ h4
 <!––The Home page––> 
 <div id="Home" class="tabcontent">
 	<center>
-<<<<<<< HEAD
 	<img src="img/Rowan_University_seal.svg.png" alt="Rowan University">
 	<h1>Rowan Curricular Proposal Management System</h1>	
 	</center>
@@ -921,22 +914,17 @@ h4
 		<h3>-Additional Supporting Documentation</h3>
 	</a>
 	
-=======
 	<img src="Rowan_University_seal.svg.png" alt="Rowan University">
 	<h1>Rowan Curricular Proposal Management System</h1>	
 	</center>
->>>>>>> HTML-designs
 </div>
 
 <!––The Download page––> 
 <div id="Download" class="tabcontent">
 	<center>
 	<h1>Download Page</h1>
-<<<<<<< HEAD
 	
-=======
 	</center>
->>>>>>> HTML-designs
 
 	<h3>Proposal</h3>
 
@@ -985,11 +973,7 @@ h4
 	<h1>
 		<a href="#" class="button">Download</a>
 	</h1>
-<<<<<<< HEAD
-	
 	</center>
-=======
->>>>>>> HTML-designs
 </div>
 
 <!––The Upload page––> 
@@ -999,55 +983,33 @@ h4
 	</center>
 
 	<h3>Proposal</h3>
-
-	<select>
-		<option value="p1">Proposal 1</option>
-		<option value="p2">Proposal 2</option>
-		<option value="p3">Proposal 3</option>
-		<option value="p4">Proposal 4</option>
-	</select>
-
-	<form>
-		<h3>Document Name</h3>
-		<input type="text" name="document_name"><br>
-	</form>
-
-	<h3>Document Type</h3>
-
-	<select>
-		<option value="cover_sheet">Cover Sheet</option>
-		<option value="library_form">Library Form</option>
-		<option value="template">Template</option>
-		<option value="supporting_document">Supporting Document</option>
-		<option value="program_guide">Program Guide</option>
-	</select>
-
-	<h3>Attach Files</h3>
-
-	<form action="" method=post enctype=multipart/form-data>
-		<p>
-		<input type=file name=file>
-		</p>
-	</form>
-
-	<form>
-		<h3>Comments</h3>
-		<textarea name="comments" cols="100" rows="10"></textarea><br>
-	</form>
-<<<<<<< HEAD
-	<center>
-	<h1>
-		<a href="#" class="button">Upload</a>
-	</h1>
-	</center>
-=======
-	
-	<h1>
-		<a href="#" class="button">Upload</a>
-	</h1>
->>>>>>> HTML-designs
+	<form action="" method=POST enctype=multipart/form-data>
+    	<select>
+    		<option value="p1">Proposal 1</option>
+    		<option value="p2">Proposal 2</option>
+    		<option value="p3">Proposal 3</option>
+    		<option value="p4">Proposal 4</option>
+    	</select>
+    
+    	<h3>Document Type</h3>
+    	<select>
+    		<option value="-a" selected="selected">Assessement Form</option>
+    		<option value="-l">Library Form</option>
+    		<option value="-s">Supporting Document</option>
+    		<option value="-p">Program Guide</option>
+    	</select>
+    
+    	<h3>Attach Files</h3>
+    		<p>
+    		<input type=file name=file>
+    		</p>
+    	<center>
+    	<h1>
+    		<input class="button" type=submit value=Upload>
+    	</h1>
+    	</center>
+    </form>
 </div>
-
 
 <!––The Status page––> 
 <div id="Status" class="tabcontent">
@@ -1101,7 +1063,6 @@ function openPage(pageName, elmnt, color)
 
 document.getElementById("defaultOpen").click();
 
-<<<<<<< HEAD
 function fieldappear(that) 
 {
     if (that.value == "form_A") 
@@ -1168,7 +1129,4 @@ function fieldappear(that)
 		document.getElementById("fadeableF").style.display = "none";
     }
 }
-
-=======
->>>>>>> HTML-designs
 </script>
