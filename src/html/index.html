@@ -1,140 +1,125 @@
 <!DOCTYPE html>
 <html>
+<!-------------------------------------------------------------------------------
+
+Rowan Computer Science Dept Spring 2019 Senior Project Team
+Rowan Curricular Proposal Mangagement System for Jack Myers rowan
+
+Senior Team Members:
+Team Lead:  John Kubach
+ Scrum Master:  Joshua Jackson
+    Developer:  Alex Kulplin
+    Developer:  Jeffrey Podwats
+    Developer:  Alaina Smith
+    Developer:  Kyle Butera
+
+-----------------------------------------------------------------------------
+
+Description:
+ For Front end we are using html java script and python for now.
+ Our goal is to get it to just using python.
+ Last edit: 4/3/19
+------------------------------------------------------------------------------->
 <head>
-<style>
-
-body, html 
-{
-	background: #FFF3DD;
-	background-color: #FFF3DD;
-	height: 100%;
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 0px;
-	font-family: Arial;
-}
-
-div 
-{
-	height: 100px;
-	width: 1000px;
-	padding: 10px;
-	border: 5px solid #57150B;
-	border-top: 50px solid #57150B;
-	margin-top: 0px;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-.button 
-{
-	background-color: #57150B;
-	border: none;
-	color: #FFDD4D;
-	padding: 15px 32px;
-	text-align: center;
-	text-decoration: none;
-	display: inline-block;
-	font-size: 16px;
-	margin: 4px 2px;
-	cursor: pointer;
-}
-
-.input
-{
-	background-color: #57150B;
-	border: none;
-	color: #FFDD4D;
-	padding: 15px 32px;
-	text-align: center;
-	text-decoration: none;
-	display: inline-block;
-	font-size: 16px;
-	margin: 4px 2px;
-	cursor: pointer;
-}
-
-h1 
-{ 
-	color: #57150B;
-	margin-left: auto;
-	margin-right: auto;
-}
-h2 
-{ 
-	color: #57150B; 
-	margin-left: auto;
-	margin-right: auto;
-}
-h3 
-{ 
-	color: #57150B; 
-	margin-left: auto;
-	margin-right: auto;
-}
-h4 
-{ 
-	color: #57150B; 
-	margin-left: auto;
-	margin-right: auto;
-}
-
-.tablink 
-{
-	background-color: #57150B;
-	color: #FFCC00;
-	float: left;
-	border: none;
-	outline: none;
-	cursor: pointer;
-	padding: 14px 16px;
-	font-size: 17px;
-	width: 25%;
-}
-
-.tablink:hover 
-{
-	background-color: #FFCC00;
-	color: #57150B;
-}
-
-.tabcontent 
-{
-	color: #57150B;
-	display: none;
-	padding: 20px 20px;
-	height: auto;
-	height: 100%;
-}
-
-#Home {background-color: white;}
-#Download {background-color: white;}
-#Upload {background-color: white;}
-#Status {background-color: white;}
-
-</style>
+	<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-
+<!--==============$$ Start of buttons $$==================================-->
 <button class="tablink" onclick="openPage('Home', this, '#57150B')" id="defaultOpen">Home</button>
 <button class="tablink" onclick="openPage('Upload', this, '#57150B')">Upload</button>
 <button class="tablink" onclick="openPage('Download', this, '#57150B')">Download</button>
 <button class="tablink" onclick="openPage('Status', this, '#57150B')">Status</button>
+<!--=============## end ##================================================-->
 
+<!--==============$$ Start Of Home Page $$================================-->
 <!––The Home page––> 
 <div id="Home" class="tabcontent">
+	<!--======= Image For Home page =======-->
 	<center>
 	<img src="img/Rowan_University_seal.svg.png" alt="Rowan University">
+
 	<h1>Rowan Curricular Proposal Management System</h1>	
 	</center>
 	
+	<a id="fadeableMain2" style="display: block;">
+
+	<!--===== Options for your deparment choice so you can login =======-->
+	<h4>Select Your Department:
+	<select  id="department">
+		<option disabled selected value> -- select an option -- </option>
+		<option value="af">Accounting & Finance</option>
+		<option value="a">Art</option>
+		<option value="b">Biology</option>
+		<option value="be">Biomedical Engineering</option>
+		<option value="ce">Chemical Engineering</option>
+		<option value="cb">Chemistry & Biochemistry</option>
+		<option value="cee">Civil & Environmental Eng.</option>
+		<option value="cs">Communication Studies</option>
+		<option value="cs">Computer Science</option>
+		<option value="esl">Ed Services & Leadership</option>
+		<option value="ece">Electrical & Computer Engin</option>
+		<option value="e">English</option>
+		<option value="es">Environmental Science</option>
+		<option value="eee">Experiential Engineering Education</option>
+		<option value="gps">Geography Pling & Sustainablty</option>
+		<option value="g">Geology</option>
+		<option value="hes">Health & Exercise Science</option>
+		<option value="h">History</option>
+		<option value="h">Honors</option>
+		<option value="iie">Interdiscipl. & Inclusive Edu</option>
+		<option value="j">Journalism</option>
+		<option value="llse">Lang Lit & Sociocultural Edu</option>
+		<option value="lj">Law/ Justice</option>
+		<option value="me">Management & Entrepreneurship</option>
+		<option value="mbis">Marketing & Buisness Info Sys</option>
+		<option value="m">Mathematics</option>
+		<option value="me">Mechanical Engineering</option>
+		<option value="mcb">Molecular & Cellular Biosci</option>
+		<option value="m">Music</option>
+		<option value="n">Nursing</option>
+		<option value="pr">Philosophy-Religion</option>
+		<option value="pa">Physics & Astronomy</option>
+		<option value="pse">Political Science & Economics</option>
+		<option value="p">Psychology</option>
+		<option value="pra">Public Relations-Advertising</option>
+		<option value="rtf">Radio/TV/Film</option>
+		<option value="steam">Sci Tech Eng Art & Math = STEAM</option>
+		<option value="sa">Sociology & Anthropology</option>
+		<option value="td">Theatre-Dance</option>
+		<option value="wl">World Languages</option>
+		<option value="wa">Writing Arts</option>
+	</select>
+	</h4>
+
+	<!--========== Password word lock on Home Page ==============-->
+	<h4>Password:
+		<input type="password" name="pwd" id="pwd" value=""></input>
+	</h4>
+	
+	</a>
+	<!--====== Enter button for the password that you input =======-->
+	<center>
+	<h1>
+		<a href="#" class="button" onclick="mainappear(pwd, department, this);">Enter</a>
+	</h1>
+	</center>
+	
+	<!--========= Fields that can be found after entering password ============-->
+	<center>
+	<h2>
+		<a id="department_name"></a>
+	</h2>
+	</center>
+	
+	<a id="fadeableMain" style="display: none;">
+	
 	<h4>Sponsor:
-	<input type="text" name="cosponsor"><br>
+	<input type="text" name="sponsor"><br>
 	</h4>
 	
 	<h4>Sponsor's Email Address:
-	<input type="text" name="cosponsor_email"><br>
+	<input type="text" name="sponsor_email"><br>
 	</h4>
 	
 	<h4>Co-Sponsor:
@@ -154,7 +139,9 @@ h4
 		<option value="201920">201920 SPRING 2019</option>
 	</select>
 	</h4>
-	
+	<!--==========## end of fields after login  ##==========-->
+
+	<!---->
 	<h4>Proposing School/College:
 	<select>
 		<option disabled selected value> -- select an option -- </option>
@@ -171,53 +158,6 @@ h4
 	</select>
 	</h4>
 	
-	<h4>Proposing Department:
-	<select>
-		<option disabled selected value> -- select an option -- </option>
-		<option value="department_1">Accounting & Finance</option>
-		<option value="department_2">Art</option>
-		<option value="department_3">Biology</option>
-		<option value="department_4">Biomedical Engineering</option>
-		<option value="department_5">Chemical Engineering</option>
-		<option value="department_6">Chemistry & Biochemistry</option>
-		<option value="department_7">Civil & Environmental Eng.</option>
-		<option value="department_8">Communication Studies</option>
-		<option value="department_9">Computer Science</option>
-		<option value="department_10">Ed Services & Leadership</option>
-		<option value="department_11">Electrical & Computer Engin</option>
-		<option value="department_12">English</option>
-		<option value="department_13">Environmental Science</option>
-		<option value="department_14">Experiential Engineering Education</option>
-		<option value="department_15">Geography Pling & Sustainablty</option>
-		<option value="department_16">Geology</option>
-		<option value="department_17">Health & Exercise Science</option>
-		<option value="department_18">History</option>
-		<option value="department_19">Honors</option>
-		<option value="department_20">Interdiscipl. & Inclusive Edu</option>
-		<option value="department_21">Journalism</option>
-		<option value="department_22">Lang Lit & Sociocultural Edu</option>
-		<option value="department_23">Law/ Justice</option>
-		<option value="department_24">Management & Entrepreneurship</option>
-		<option value="department_25">Marketing & Buisness Info Sys</option>
-		<option value="department_26">Mathematics</option>
-		<option value="department_27">Mechanical Engineering</option>
-		<option value="department_28">Molecular & Cellular Biosci</option>
-		<option value="department_29">Music</option>
-		<option value="department_30">Nursing</option>
-		<option value="department_31">Philosophy-Religion</option>
-		<option value="department_32">Physics & Astronomy</option>
-		<option value="department_33">Political Science & Economics</option>
-		<option value="department_34">Psychology</option>
-		<option value="department_35">Public Relations-Advertising</option>
-		<option value="department_36">Radio/TV/Film</option>
-		<option value="department_37">Sci Tech Eng Art & Math = STEAM</option>
-		<option value="department_38">Sociology & Anthropology</option>
-		<option value="department_39">Theatre-Dance</option>
-		<option value="department_40">World Languages</option>
-		<option value="department_41">Writing Arts</option>
-	</select>
-	</h4>
-	
 	<h4>Curriculum Change Proposal Type:
 	<select onchange="fieldappear(this);">
 		<option disabled selected value> -- select an option -- </option>
@@ -229,6 +169,8 @@ h4
 		<option value="form_F">Quasi Cerricular Proposal</option>
 	</select>
 	</h4>
+	
+	</a>
 
 	<a id="fadeableA" style="display: none;">
 	
@@ -460,8 +402,9 @@ h4
 	<a id="fadeableC" style="display: none;">
 	
 		<br>
+<!--===================$$ Options for Degree information $$================================-->
 		<h2>Degree Program Information</h2>
-		
+
 		<h4>Degree Program Credentials:
 		<select>
 			<option disabled selected value> -- select an option -- </option>
@@ -493,6 +436,7 @@ h4
 			<option value="dpc_concentration">Concentration</option>
 			<option value="dpc_postbacc">Post-Bacc</option>
 		</select>
+<!--===============## end of options ##=========================================-->
 		</h4>
 		
 		<h4>Degree Program Name:
@@ -914,18 +858,15 @@ h4
 		<h3>-Additional Supporting Documentation</h3>
 	</a>
 	
-	<img src="Rowan_University_seal.svg.png" alt="Rowan University">
-	<h1>Rowan Curricular Proposal Management System</h1>	
-	</center>
 </div>
+<!--=================## end ##=========================================-->
 
+<!--=================$$ Start Of Download $$===========================-->
 <!––The Download page––> 
 <div id="Download" class="tabcontent">
 	<center>
 	<h1>Download Page</h1>
 	
-	</center>
-
 	<h3>Proposal</h3>
 
 	<select>
@@ -975,7 +916,9 @@ h4
 	</h1>
 	</center>
 </div>
+<!--====================## end ##===========================-->
 
+<!--==============$$ Start of Upload Page $$========================-->
 <!––The Upload page––> 
 <div id="Upload" class="tabcontent">
 	<center>
@@ -1010,12 +953,18 @@ h4
     	</center>
     </form>
 </div>
+<!--=======================## end ##==============================================================-->
 
+<!--=====================$$ Start of Status Page $$===============================================-->
 <!––The Status page––> 
 <div id="Status" class="tabcontent">
 	<center>
 	<h1>Status Page</h1>
 	</center>
+
+	<svg width="250" height="250">
+		<circle r="125" cx="125" cy="125" fill="brown" stroke="yellow" stroke-width="5px" />
+	</svg>
 
 	<h3>Proposal</h3>
 
@@ -1037,96 +986,6 @@ h4
 	<h3>Program Guide</h3>
 </div>
 </body>
+<!--========================## end ##===============================================================-->
 
-
-<script>
-
-function openPage(pageName, elmnt, color) 
-{
-	var i, tabcontent, tablinks;
-	tabcontent = document.getElementsByClassName("tabcontent");
-	for (i = 0; i < tabcontent.length; i++) 
-	{
-		tabcontent[i].style.display = "none";
-	}
-
-	tablinks = document.getElementsByClassName("tablink");
-	for (i = 0; i < tablinks.length; i++) 
-	{
-		tablinks[i].style.backgroundColor = "";
-	}
-
-	document.getElementById(pageName).style.display = "block";
-
-	elmnt.style.backgroundColor = color;
-}
-
-document.getElementById("defaultOpen").click();
-
-function fieldappear(that) 
-{
-    if (that.value == "form_A") 
-	{
-        document.getElementById("fadeableA").style.display = "block";
-		document.getElementById("fadeableB").style.display = "none";
-		document.getElementById("fadeableC").style.display = "none";
-		document.getElementById("fadeableD").style.display = "none";
-		document.getElementById("fadeableE").style.display = "none";
-		document.getElementById("fadeableF").style.display = "none";
-    } 
-	else if (that.value == "form_B") 
-	{
-		document.getElementById("fadeableA").style.display = "none";
-        document.getElementById("fadeableB").style.display = "block";
-		document.getElementById("fadeableC").style.display = "none";
-		document.getElementById("fadeableD").style.display = "none";
-		document.getElementById("fadeableE").style.display = "none";
-		document.getElementById("fadeableF").style.display = "none";
-    } 
-	else if (that.value == "form_C") 
-	{
-		document.getElementById("fadeableA").style.display = "none";
-        document.getElementById("fadeableB").style.display = "none";
-		document.getElementById("fadeableC").style.display = "block";
-		document.getElementById("fadeableD").style.display = "none";
-		document.getElementById("fadeableE").style.display = "none";
-		document.getElementById("fadeableF").style.display = "none";
-    } 
-	else if (that.value == "form_D") 
-	{
-		document.getElementById("fadeableA").style.display = "none";
-        document.getElementById("fadeableB").style.display = "none";
-		document.getElementById("fadeableC").style.display = "none";
-		document.getElementById("fadeableD").style.display = "block";
-		document.getElementById("fadeableE").style.display = "none";
-		document.getElementById("fadeableF").style.display = "none";
-    } 
-	else if (that.value == "form_E") 
-	{
-		document.getElementById("fadeableA").style.display = "none";
-        document.getElementById("fadeableB").style.display = "none";
-		document.getElementById("fadeableC").style.display = "none";
-		document.getElementById("fadeableD").style.display = "none";
-		document.getElementById("fadeableE").style.display = "block";
-		document.getElementById("fadeableF").style.display = "none";
-    } 
-	else if (that.value == "form_F") 
-	{
-		document.getElementById("fadeableA").style.display = "none";
-        document.getElementById("fadeableB").style.display = "none";
-		document.getElementById("fadeableC").style.display = "none";
-		document.getElementById("fadeableD").style.display = "none";
-		document.getElementById("fadeableE").style.display = "none";
-		document.getElementById("fadeableF").style.display = "block";
-    } 
-	else 
-	{
-        document.getElementById("fadeableA").style.display = "none";
-		document.getElementById("fadeableB").style.display = "none";
-		document.getElementById("fadeableC").style.display = "none";
-		document.getElementById("fadeableD").style.display = "none";
-		document.getElementById("fadeableE").style.display = "none";
-		document.getElementById("fadeableF").style.display = "none";
-    }
-}
-</script>
+<script type="text/javascript" src="javascript.js"></script>
