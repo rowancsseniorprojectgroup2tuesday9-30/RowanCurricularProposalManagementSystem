@@ -21,7 +21,7 @@ Description:
  Last edit: 4/3/19
 ------------------------------------------------------------------------------->
 <head>
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="{{ url_for('static',filename='styles/style.css') }}">
 </head>
 
 <body>
@@ -37,7 +37,7 @@ Description:
 <div id="Home" class="tabcontent">
 	<!--======= Image For Home page =======-->
 	<center>
-	<img src="img/Rowan_University_seal.svg.png" alt="Rowan University">
+	<img src="/static/img/Rowan_University_seal.svg.png" alt="Rowan University">
 
 	<h1>Rowan Curricular Proposal Management System</h1>	
 	</center>
@@ -911,6 +911,7 @@ Description:
 
 	<h3>Proposal</h3>
 	<form action="" method=POST enctype=multipart/form-data>
+	<select name = "prop_select">
     		<option value="p1">Proposal 1</option>
     		<option value="p2">Proposal 2</option>
     		<option value="p3">Proposal 3</option>
@@ -918,13 +919,12 @@ Description:
     	</select>
     
     	<h3>Document Type</h3>
-    	<select>
     	<select name = "doc_select">
     		<option value="-a" selected="selected">Assessement Form</option>
     		<option value="-l">Library Form</option>
     		<option value="-s">Supporting Document</option>
     		<option value="-p">Program Guide</option>
-		    <option value="-c">Consultation Letters</option>
+		<option value="-c">Consultation Letters</option>
     	</select>
     
     	<h3>Attach Files</h3>
@@ -973,4 +973,4 @@ Description:
 </body>
 <!--========================## end ##===============================================================-->
 
-<script type="text/javascript" src="javascript.js"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='javascript.js') }}"></script>
