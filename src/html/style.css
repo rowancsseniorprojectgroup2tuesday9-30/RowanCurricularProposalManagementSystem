@@ -22,7 +22,19 @@ Description:
 <head>
 <body>
 <style>
-	"body, html
+	".
+	body
+	{
+		background: #FFF3DD;
+		background-color: #FFF3DD;
+		height: 100%;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 0px;
+		font-family: Arial;
+	}
+	
+	html
 	{
 		background: #FFF3DD;
 		background-color: #FFF3DD;
