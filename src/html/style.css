@@ -121,17 +121,13 @@
 		height: auto;
 	}
 
-
-	.check 
-	{
+	.check {
 		stroke-dasharray: 130px 130px;
 		stroke-dashoffset: 130px;
 		-webkit-transition: stroke-dashoffset 4.1s linear 0s;
 		transition: stroke-dashoffset 500ms ease-in-out;
-	}	  
+	  }
 	  
-}
-
 
 
 #Home {background-color: white;}
