@@ -122,31 +122,107 @@
 	}
 
 
-	.check path {
-  	  	fill:none;
-  	 	stroke:#2ABA66;
-   	 	stroke-miterlimit:10;
-   		stroke-width: 10px;
-    
-    
-    	margin: 40px;
-    	stroke-dasharray: $offset;
-    	stroke-dashoffset: $offset;
-    	animation: draw 0.5s linear forwards;
-    
-}
-
-	svg { overflow:visible }
-
-	@keyframes draw {
-	from 
+	.check 
 	{
-        stroke-linecap: round;
-    }
-    to {
-        stroke-linecap: round;
-        stroke-dashoffset: 0;
-    }
+		stroke-dasharray: 130px 130px;
+		stroke-dashoffset: 130px;
+		-webkit-transition: stroke-dashoffset 4.1s linear 0s;
+		transition: stroke-dashoffset 500ms ease-in-out;
+	}	  
+
+@import "bourbon";
+
+// easing cubic bezier timing
+$fluid: .7,.3,0,1;
+$fluidless: .5,.5,0,1;
+$smootheaseout: .62,.02,.34,1;
+$intenseeaseout: 1,0,0,1;
+$lessintenseperfect: .55,0,0.45,1;
+$suckitin: .38,-0.32,.89,.34;
+$smoothswing: 0.4, 0.3, 0.1, .4;
+$gentleeasein: .5,0,.57,1;
+$lineareaseout: .45,.65,.64,1;
+$sweepinginout: .52,.01,.16,1;
+$lineareasein: .52,.7,.41,1;
+$gentleout: .11,.62,.3,.98;
+$sweetout: .19,1,.22,1;
+$bouncey: .1,.55,.29,1.44;
+
+.close {
+	width: 100px;
+  height: 100px;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+	@include transition(0.25s cubic-bezier($smootheaseout));
+	span {
+		width: 100%;
+    height: 100%;
+		position: absolute;
+		top: 0;
+    left: 0;
+		&::before, &::after {
+			content: '';
+			width: 100%;
+			height: 2px;
+			background-color: #fff;
+			position: absolute;
+			top: 50%; left: 0;
+			@include transition(0.34s cubic-bezier($sweepinginout));
+			-webkit-backface-visibility: hidden;
+		}
+		&:nth-child(1) {
+			&::before {
+				@include transform(rotate(45deg) translateX(0) scaleX(1));
+				@include transition-delay(0.12s);
+			}
+			&::after {
+				@include transform(rotate(-45deg) translateX(0) scaleX(1));
+				@include transition-delay(0.22s);
+			}
+		}
+		
+		&:nth-child(2) {
+			&::before, &::after {
+				// background-color: rgba(#fff, 0);
+			}
+			&::before {
+				@include transform(rotate(45deg) translateX(-70%) scaleX(0));
+			}
+			&::after {
+				@include transform(rotate(-45deg)  translateX(-70%) scaleX(0));
+			}
+		}
+	}
+	&:hover span {
+		&:nth-child(1) {
+			&::before, &::after {
+				// background-color: rgba(#fff, 0);
+				@include transition-delay(0s);
+			}
+			&::before {
+				@include transform(rotate(45deg) translateX(70%) scaleX(0));
+			}
+			&::after {
+				@include transform(rotate(-45deg) translateX(70%) scaleX(0));
+			}
+		}
+		&:nth-child(2) {
+			&::before, &::after {
+				// background-color: rgba(#fff, 1);
+			}
+			&::before {
+				@include transform(rotate(45deg) translateX(0) scaleX(1));
+				@include transition-delay(0.22s);
+			}
+			&::after {
+				@include transform(rotate(-45deg) translateX(0) scaleX(1));
+				@include transition-delay(0.32s);
+			}
+		}
+	}
+}
+	  
 }
 
 
