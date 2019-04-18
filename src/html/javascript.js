@@ -17,13 +17,12 @@ function openPage(pageName, elmnt, color)
 
 	elmnt.style.backgroundColor = color;
 
-	$(document).ready(function () {
-		$('.check').css('stroke-dashoffset', 0);
-	  });
 }
 
 document.getElementById("defaultOpen").click();
-
+$(document).ready(function () {
+	$('.check').css('stroke-dashoffset', 0);
+  });
 
 
 function fieldappear(that) 
