@@ -121,27 +121,33 @@
 		height: auto;
 	}
 
-	html{
-		background-color: #222;
-	  }
-	  
-	  .check{
-		stroke-dasharray: 1000;
-		stroke-dashoffset: 1000;
-		animation: dash 1.3s linear forwards;
-	  }
-	  
-	  @keyframes dash {
-		to {
-		  stroke-dashoffset: 0;
-		}
-	  }
-	  
-	  body{
-		display: flex;
-		justify-content:center;
-		margin-top: 30px;
-	  }
+
+	.check path {
+  	  	fill:none;
+  	 	stroke:#2ABA66;
+   	 	stroke-miterlimit:10;
+   		stroke-width: 10px;
+    
+    
+    	margin: 40px;
+    	stroke-dasharray: $offset;
+    	stroke-dashoffset: $offset;
+    	animation: draw 0.5s linear forwards;
+    
+}
+
+	svg { overflow:visible }
+
+	@keyframes draw {
+	from 
+	{
+        stroke-linecap: round;
+    }
+    to {
+        stroke-linecap: round;
+        stroke-dashoffset: 0;
+    }
+}
 
 
 
