@@ -16,9 +16,15 @@ function openPage(pageName, elmnt, color)
 	document.getElementById(pageName).style.display = "block";
 
 	elmnt.style.backgroundColor = color;
+
+	$(document).ready(function () {
+		$('.check').css('stroke-dashoffset', 0);
+	  });
 }
 
 document.getElementById("defaultOpen").click();
+
+
 
 function fieldappear(that) 
 {
