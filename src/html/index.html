@@ -22,6 +22,35 @@ Description:
 ------------------------------------------------------------------------------->
 <head>
 	<link rel="stylesheet" href="style.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta hhtp-equiv="X-UA-Compatible" content="ie=edge">
+
+	<sytle>
+		.circle
+		{
+			width: 400px;
+			height: 400px;
+			background: #5E2309;
+			margin:10% auto;
+			border-radius: 50%;
+			position: relative;
+		}
+		.content
+		{
+			position: absolute;
+			width:inherit;
+			height:auto;
+			top:50%;
+			transform:translateY(-50%);
+			text-align: center;
+			font-family: Arial;
+			color: #fff;
+			font-style: italic;
+			text-transform: capitalize;
+		}
+	</sytle>
+
 </head>
 
 <body>
@@ -38,7 +67,6 @@ Description:
 	<!--======= Image For Home page =======-->
 	<center>
 	<img src="img/Rowan_University_seal.svg.png" alt="Rowan University">
-
 	<h1>Rowan Curricular Proposal Management System</h1>	
 	</center>
 	
@@ -113,7 +141,8 @@ Description:
 	</center>
 	
 	<a id="fadeableMain" style="display: none;">
-	
+
+	<!--===========$$ Sponsor input $$================-->
 	<h4>Sponsor:
 	<input type="text" name="sponsor"><br>
 	</h4>
@@ -141,7 +170,7 @@ Description:
 	</h4>
 	<!--==========## end of fields after login  ##==========-->
 
-	<!---->
+	<!--====== Deparments of the schools who can create proposing ===========-->
 	<h4>Proposing School/College:
 	<select>
 		<option disabled selected value> -- select an option -- </option>
@@ -158,6 +187,7 @@ Description:
 	</select>
 	</h4>
 	
+	<!--==========$ These will be the different proposal types  $===========-->
 	<h4>Curriculum Change Proposal Type:
 	<select onchange="fieldappear(this);">
 		<option disabled selected value> -- select an option -- </option>
@@ -175,6 +205,7 @@ Description:
 	<a id="fadeableA" style="display: none;">
 	
 		<br>
+		
 		<h2>Course Information</h2>
 	
 		<h4>Course Subject:
@@ -437,6 +468,8 @@ Description:
 			<option value="dpc_postbacc">Post-Bacc</option>
 		</select>
 <!--===============## end of options ##=========================================-->
+
+<!--===============$$ Start of the Details of the proposal $$==============================-->
 		</h4>
 		
 		<h4>Degree Program Name:
@@ -552,10 +585,11 @@ Description:
 	</a>
 	
 	<a id="fadeableD" style="display: none;">
-	
+<!--========================## end ##============================================-->
 		<br>
+<!--===================== Start of degree info ==================================-->
 		<h2>Degree Program Information</h2>
-		
+<!--===================== Options for Degree programs ===========================-->
 		<h4>Degree Program Credentials:
 		<select>
 			<option disabled selected value> -- select an option -- </option>
@@ -665,11 +699,11 @@ Description:
 			<option value="dpc_postbacc">Post-Bacc</option>
 		</select>
 		</h4>
-		
+<!--=========== Undergraduate Degree Program names ==============-->
 		<h4>Undergraduate Degree Program Name:
 		<input type="text" name="udpn"><br>
 		</h4>
-		
+<!--=================== Graduate Degree Programs options ========================-->
 		<h4>Graduate Degree Program Credential:
 		<select>
 			<option disabled selected value> -- select an option -- </option>
@@ -867,6 +901,7 @@ Description:
 	<center>
 	<h1>Download Page</h1>
 	
+
 	<h3>Proposal</h3>
 
 	<select>
@@ -898,6 +933,7 @@ Description:
 	<h1>
 		<a href="#" class="button">Download</a>
 	</h1>
+	
 	</center>
 </div>
 <!--====================## end ##===========================-->
@@ -910,33 +946,37 @@ Description:
 	
 
 	<h3>Proposal</h3>
-	<form action="" method=POST enctype=multipart/form-data>
-    		<option value="p1">Proposal 1</option>
-    		<option value="p2">Proposal 2</option>
-    		<option value="p3">Proposal 3</option>
-    		<option value="p4">Proposal 4</option>
-    	</select>
-    
-    	<h3>Document Type</h3>
-    	<select>
-    	<select name = "doc_select">
-    		<option value="-a" selected="selected">Assessement Form</option>
-    		<option value="-l">Library Form</option>
-    		<option value="-s">Supporting Document</option>
-    		<option value="-p">Program Guide</option>
-		    <option value="-c">Consultation Letters</option>
-    	</select>
-    
-    	<h3>Attach Files</h3>
-    		<p>
-    		<input type=file name=file>
-    		</p>
-    	<center>
-    	<h1>
-    		<input class="button" type=submit value=Upload>
-    	</h1>
-    	</center>
-    </form>
+
+	<select>
+		<option value="p1">Proposal 1</option>
+		<option value="p2">Proposal 2</option>
+		<option value="p3">Proposal 3</option>
+		<option value="p4">Proposal 4</option>
+	</select>
+
+	<h3>Document Type</h3>
+
+	<select>
+		<option disabled selected value> -- select an option -- </option>
+		<option value="d1">Program Guide</option>
+		<option value="d2">Library Resource Form</option>
+		<option value="d3">Assessment</option>
+		<option value="d4">Consultation Letters</option>
+		<option value="d5">Additional Supporting Documentation</option>
+	</select>
+
+	<h3>Attach Files</h3>
+
+	<form action="" method=post enctype=multipart/form-data>
+		<p>
+		<input type=file name=file>
+		</p>
+	</form>
+
+	<h1>
+		<a href="#" class="button">Upload</a>
+	</h1>
+	</center>
 </div>
 <!--=======================## end ##==============================================================-->
 
@@ -947,12 +987,15 @@ Description:
 	<h1>Status Page</h1>
 	</center>
 
-	<svg width="250" height="250">
-		<circle r="25" cx="125" cy="125" fill="#57150B" stroke="#FFDD4D" stroke-width="5px" />
-	</svg>
 
 	<h3>Proposal</h3>
-
+	<div class="circle"
+		<div class="content">
+			<h1> insert if proposal</h1>
+			<h3> proposals found! </h3>
+		</div>
+	</div>
+	
 	<select>
 		<option value="p1">Proposal 1</option>
 		<option value="p2">Proposal 2</option>
@@ -974,3 +1017,6 @@ Description:
 <!--========================## end ##===============================================================-->
 
 <script type="text/javascript" src="javascript.js"></script>
+
+
+
