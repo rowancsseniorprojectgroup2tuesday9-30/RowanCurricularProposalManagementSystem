@@ -1,3 +1,23 @@
+"""
+=============================================================================
+Rowan Computer Science Dept Spring 2019 Senior Project Team
+Rowan Curricular Proposal Mangagement System for Jack Myers rowan
+
+Senior Team Members:
+Team Lead:  John Kubach
+ Scrum Master:  Joshua Jackson
+    Developer:  Alex Kulplin
+    Developer:  Jeffrey Podwats
+    Developer:  Alaina Smith
+    Developer:  Kyle Butera
+
+-----------------------------------------------------------------------------
+
+Description:
+ this is connecting the backend to frontend via the controler flask
+ Last edit: 4/18/19
+ =============================================================================
+"""
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy import create_engine
 from sqlalchemy.inspection import inspect
