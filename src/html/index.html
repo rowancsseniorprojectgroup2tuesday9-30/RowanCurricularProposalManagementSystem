@@ -869,10 +869,12 @@ Description:
 <!--=================$$ Start Of Download $$===========================-->
 <!––The Download page––> 
 <div id="Download" class="tabcontent">
+	<!--=============== centering of the whole entire page (text)==================-->
 	<center>
+	<!--=============== header of the page ========================================-->
 	<h1>Download Page</h1>
 	
-
+	<!--================ option title proposal ==================================-->
 	<h3>Proposal</h3>
 
 	<select>
@@ -912,21 +914,27 @@ Description:
 <!--==============$$ Start of Upload Page $$========================-->
 <!––The Upload page––> 
 <div id="Upload" class="tabcontent">
+
+	<!--============= centers the whole web page =====================-->
 	<center>
+	<!--============== title text displayed ========================-->
 	<h1>Upload Page</h1>
 	
-
+	<!--=============== This gives you the options which proposal to upload ==========-->
 	<h3>Proposal</h3>
 
+	<!--================ Selection options given ===========================-->
 	<select>
 		<option value="p1">Proposal 1</option>
 		<option value="p2">Proposal 2</option>
 		<option value="p3">Proposal 3</option>
 		<option value="p4">Proposal 4</option>
 	</select>
+	<!--====================== end =====================================-->
 
+	<!--===================== document type upload title =======================-->
 	<h3>Document Type</h3>
-
+	<!--======================= gives you the options ===========================-->
 	<select>
 		<option disabled selected value> -- select an option -- </option>
 		<option value="d1">Program Guide</option>
@@ -935,18 +943,21 @@ Description:
 		<option value="d4">Consultation Letters</option>
 		<option value="d5">Additional Supporting Documentation</option>
 	</select>
+<!--========================== end ===========================================-->
 
+<!--======================= Title: Attach Files =================================-->
 	<h3>Attach Files</h3>
-
+<!--======================== This will supply the upload button and fuction =============-->
 	<form action="" method=post enctype=multipart/form-data>
 		<p>
 		<input type=file name=file>
 		</p>
 	</form>
-
+<!--========================= actually code for the button "upload" ====================-->
 	<h1>
 		<a href="#" class="button">Upload</a>
 	</h1>
+	<!--========================== end of center ============================================-->
 	</center>
 </div>
 <!--=======================## end ##==============================================================-->
@@ -954,11 +965,53 @@ Description:
 <!--=====================$$ Start of Status Page $$===============================================-->
 <!––The Status page––> 
 <div id="Status" class="tabcontent wrapper">
+<!--====================== centering of the Status text ==========================================-->	
 	<center>
 	<h1>Status Page</h1>
 	</center>
 
+<!--========================== status of the purposal =============================================-->
 	<h3>Proposal</h3>
+	<!--============================= SVG for the incomplete =============================================-->
+	<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
+		<circle class="path circle" fill="none" stroke="#D06079" stroke-width="6" stroke-miterlimit="10" cx="65.1" cy="65.1" r="62.1"/>
+		<line class="path line" fill="none" stroke="#D06079" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" x1="34.4" y1="37.9" x2="95.8" y2="92.3"/>
+		<line class="path line" fill="none" stroke="#D06079" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" x1="95.8" y1="38" x2="34.4" y2="92.2"/>
+	  </svg>
+		<p class="error">Incomplete!</p>
+
+		<!-- This is displayed when files are found -->
+		<!-- 
+			<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
+  <circle class="path circle" fill="none" stroke="#73AF55" stroke-width="6" stroke-miterlimit="10" cx="65.1" cy="65.1" r="62.1"/>
+  <polyline class="path check" fill="none" stroke="#73AF55" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" points="100.2,40.2 51.5,88.8 29.8,67.5 "/>
+</svg>
+<p class="success">Oh Yeah!</p>xss
+		-->
+<!--===================================== end ================================================-->
+
+<!--===================================== status of the program guide ==========================-->
+	<h3>Program Guide</h3>
+	<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
+		<circle class="path circle" fill="none" stroke="#D06079" stroke-width="6" stroke-miterlimit="10" cx="65.1" cy="65.1" r="62.1"/>
+		<line class="path line" fill="none" stroke="#D06079" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" x1="34.4" y1="37.9" x2="95.8" y2="92.3"/>
+		<line class="path line" fill="none" stroke="#D06079" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" x1="95.8" y1="38" x2="34.4" y2="92.2"/>
+	  </svg>
+		<p class="error">Incomplete!</p>
+	<!--==================================== end ==============================================-->
+
+<!--===================================== Library Resource Form Status ===========================-->
+	<h3>Library Resource Form</h3>
+	<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
+		<circle class="path circle" fill="none" stroke="#D06079" stroke-width="6" stroke-miterlimit="10" cx="65.1" cy="65.1" r="62.1"/>
+		<line class="path line" fill="none" stroke="#D06079" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" x1="34.4" y1="37.9" x2="95.8" y2="92.3"/>
+		<line class="path line" fill="none" stroke="#D06079" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" x1="95.8" y1="38" x2="34.4" y2="92.2"/>
+	  </svg>
+		<p class="error">Incomplete!</p>
+	<!--====================================== end ============================================-->
+
+	<!--======================================= Assement Status =======================================-->
+	<h3>Assessment</h3>
 	<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
 		<circle class="path circle" fill="none" stroke="#D06079" stroke-width="6" stroke-miterlimit="10" cx="65.1" cy="65.1" r="62.1"/>
 		<line class="path line" fill="none" stroke="#D06079" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" x1="34.4" y1="37.9" x2="95.8" y2="92.3"/>
@@ -966,38 +1019,9 @@ Description:
 	  </svg>
 		<p class="error">Incomplete!</p>
 		
-		<!-- 
-			<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
-  <circle class="path circle" fill="none" stroke="#73AF55" stroke-width="6" stroke-miterlimit="10" cx="65.1" cy="65.1" r="62.1"/>
-  <polyline class="path check" fill="none" stroke="#73AF55" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" points="100.2,40.2 51.5,88.8 29.8,67.5 "/>
-</svg>
-<p class="success">Oh Yeah!</p>
-		-->
+	<!--============================== end ===================================================-->
 
-	<h3>Program Guide</h3>
-	<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
-		<circle class="path circle" fill="none" stroke="#D06079" stroke-width="6" stroke-miterlimit="10" cx="65.1" cy="65.1" r="62.1"/>
-		<line class="path line" fill="none" stroke="#D06079" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" x1="34.4" y1="37.9" x2="95.8" y2="92.3"/>
-		<line class="path line" fill="none" stroke="#D06079" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" x1="95.8" y1="38" x2="34.4" y2="92.2"/>
-	  </svg>
-	  <p class="error">Incomplete!</p>
-
-	<h3>Library Resource Form</h3>
-	<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
-		<circle class="path circle" fill="none" stroke="#D06079" stroke-width="6" stroke-miterlimit="10" cx="65.1" cy="65.1" r="62.1"/>
-		<line class="path line" fill="none" stroke="#D06079" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" x1="34.4" y1="37.9" x2="95.8" y2="92.3"/>
-		<line class="path line" fill="none" stroke="#D06079" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" x1="95.8" y1="38" x2="34.4" y2="92.2"/>
-	  </svg>
-	  <p class="error">Incomplete!</p>
-
-	<h3>Assessment</h3>
-	<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
-		<circle class="path circle" fill="none" stroke="#D06079" stroke-width="6" stroke-miterlimit="10" cx="65.1" cy="65.1" r="62.1"/>
-		<line class="path line" fill="none" stroke="#D06079" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" x1="34.4" y1="37.9" x2="95.8" y2="92.3"/>
-		<line class="path line" fill="none" stroke="#D06079" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" x1="95.8" y1="38" x2="34.4" y2="92.2"/>
-	  </svg>
-	  <p class="error">Incomplete!</p>
-
+	<!--=============================== Consultation Letters Status ============================-->
 	<h3>Consultation Letters</h3>
 	<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
 		<circle class="path circle" fill="none" stroke="#D06079" stroke-width="6" stroke-miterlimit="10" cx="65.1" cy="65.1" r="62.1"/>
@@ -1005,18 +1029,22 @@ Description:
 		<line class="path line" fill="none" stroke="#D06079" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" x1="95.8" y1="38" x2="34.4" y2="92.2"/>
 	  </svg>
 	  <p class="error">Incomplete!</p>
+<!--=================================== end ===========================================-->
 
+<!--==================================== Additional Supporting Documentation ==============-->
 	<h3>Additional Supporting Documentation</h3>
 	<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
 		<circle class="path circle" fill="none" stroke="#D06079" stroke-width="6" stroke-miterlimit="10" cx="65.1" cy="65.1" r="62.1"/>
 		<line class="path line" fill="none" stroke="#D06079" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" x1="34.4" y1="37.9" x2="95.8" y2="92.3"/>
 		<line class="path line" fill="none" stroke="#D06079" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" x1="95.8" y1="38" x2="34.4" y2="92.2"/>
 	  </svg>
-	  <p class="error">Incomplete!</p>
+		<p class="error">Incomplete!</p>
+<!--==================================== end ==============================-->
 </div>
 </body>
 <!--========================## end ##===============================================================-->
 
+<!--============================ java script code ==================================================-->
 <script type="text/javascript" src="javascript.js"></script>
 
 
