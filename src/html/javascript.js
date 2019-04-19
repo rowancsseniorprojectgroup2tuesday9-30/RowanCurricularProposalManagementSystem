@@ -1,29 +1,36 @@
 function openPage(pageName, elmnt, color) 
 {
-	var i, tabcontent, tablinks;
-	tabcontent = document.getElementsByClassName("tabcontent");
-	for (i = 0; i < tabcontent.length; i++) 
+	if(pageName == "Home" || document.getElementById("department_name").text.includes("Department"))
 	{
-		tabcontent[i].style.display = "none";
-	}
+		var i, tabcontent, tablinks;
+		tabcontent = document.getElementsByClassName("tabcontent");
+		for (i = 0; i < tabcontent.length; i++) 
+		{
+			tabcontent[i].style.display = "none";
+		}
 
-	tablinks = document.getElementsByClassName("tablink");
-	for (i = 0; i < tablinks.length; i++) 
+		tablinks = document.getElementsByClassName("tablink");
+		for (i = 0; i < tablinks.length; i++) 
+		{
+			tablinks[i].style.backgroundColor = "";
+		}
+
+		document.getElementById(pageName).style.display = "block";
+
+		elmnt.style.backgroundColor = color;
+	}
+	else
 	{
-		tablinks[i].style.backgroundColor = "";
+		alert("You must first login!");
 	}
-
-	document.getElementById(pageName).style.display = "block";
-
-	elmnt.style.backgroundColor = color;
-
 }
 
 document.getElementById("defaultOpen").click();
-$(document).ready(function () {
-	$('.check').css('stroke-dashoffset', 0);
-  });
-
+	$(document).ready(function () 
+		{
+			document.getElementById("department_name").text = "";
+			$('.check').css('stroke-dashoffset', 0);
+		});
 
 function fieldappear(that) 
 {
@@ -98,13 +105,18 @@ function mainappear(pass, dep, that)
 	{
         document.getElementById("fadeableMain").style.display = "block";
 		document.getElementById("fadeableMain2").style.display = "none";
-		document.getElementById("department_name").text = dep.value;
+		document.getElementById("fadeableMain3").style.display = "block";
+		document.getElementById("department_name").text = "Current Department: " + dep.value;
+		document.getElementById("department_name2").text = "Current Department: " + dep.value;
+		document.getElementById("department_name3").text = "Current Department: " + dep.value;
+		document.getElementById("department_name4").text = "Current Department: " + dep.value;
 		that.style.display = "none";
     } 
 	else 
 	{
 		document.getElementById("fadeableMain").style.display = "none";
 		document.getElementById("fadeableMain2").style.display = "block";
+		document.getElementById("fadeableMain3").style.display = "none";
 		alert("wrong password");
 	}
 	
