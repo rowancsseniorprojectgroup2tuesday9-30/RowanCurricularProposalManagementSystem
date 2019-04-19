@@ -101,7 +101,7 @@ function fieldappear(that)
 
 function mainappear(pass, dep, that) 
 {
-    if (pass.value == dep.value && pass.value != "") 
+    if (pass.value == "test" && pass.value != "") 
 	{
         document.getElementById("fadeableMain").style.display = "block";
 		document.getElementById("fadeableMain2").style.display = "none";
