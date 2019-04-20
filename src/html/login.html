@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="{{ url_for('static',filename='styles/style.css') }}">
+</head>
+
+<body>
+<!--==============$$ Start of buttons $$==================================-->
+
+<div class=navbox>
+    <div class= nav>
+        <a href="index.html" target="">Home</a>
+        <a href="upload.html" target="">Upload</a>
+        <a href="download.html" target="">Download</a>
+        <a href="status.html" target="">Status</a>
+    </div>
+    <br><br>
+</div>
+
+<!--=============## end ##================================================-->
+
+<!--==============$$ Start Of Home Page $$================================-->
+<!––The Home page––> 
+<div id="Home" class="tabcontent">
+	<!--===== Options for your deparment choice so you can login =======-->
+	<h4>Select Your Department:
+	<select  id="department">
+		<option disabled selected value> -- select an option -- </option>
+		<option value="af">Accounting & Finance</option>
+		<option value="a">Art</option>
+		<option value="b">Biology</option>
+		<option value="be">Biomedical Engineering</option>
+		<option value="ce">Chemical Engineering</option>
+		<option value="cb">Chemistry & Biochemistry</option>
+		<option value="cee">Civil & Environmental Eng.</option>
+		<option value="cs">Communication Studies</option>
+		<option value="cs">Computer Science</option>
+		<option value="esl">Ed Services & Leadership</option>
+		<option value="ece">Electrical & Computer Engin</option>
+		<option value="e">English</option>
+		<option value="es">Environmental Science</option>
+		<option value="eee">Experiential Engineering Education</option>
+		<option value="gps">Geography Pling & Sustainablty</option>
+		<option value="g">Geology</option>
+		<option value="hes">Health & Exercise Science</option>
+		<option value="h">History</option>
+		<option value="h">Honors</option>
+		<option value="iie">Interdiscipl. & Inclusive Edu</option>
+		<option value="j">Journalism</option>
+		<option value="llse">Lang Lit & Sociocultural Edu</option>
+		<option value="lj">Law/ Justice</option>
+		<option value="me">Management & Entrepreneurship</option>
+		<option value="mbis">Marketing & Buisness Info Sys</option>
+		<option value="m">Mathematics</option>
+		<option value="me">Mechanical Engineering</option>
+		<option value="mcb">Molecular & Cellular Biosci</option>
+		<option value="m">Music</option>
+		<option value="n">Nursing</option>
+		<option value="pr">Philosophy-Religion</option>
+		<option value="pa">Physics & Astronomy</option>
+		<option value="pse">Political Science & Economics</option>
+		<option value="p">Psychology</option>
+		<option value="pra">Public Relations-Advertising</option>
+		<option value="rtf">Radio/TV/Film</option>
+		<option value="steam">Sci Tech Eng Art & Math = STEAM</option>
+		<option value="sa">Sociology & Anthropology</option>
+		<option value="td">Theatre-Dance</option>
+		<option value="wl">World Languages</option>
+		<option value="wa">Writing Arts</option>
+	</select>
+	</h4>
+
+	<!--========== Password word lock on Home Page ==============-->
+	<h4>Password:
+		<input type="password" name="pwd" id="pwd" value=""></input>
+	</h4>
+	
+	</a>
+	<!--====== Enter button for the password that you input =======-->
+	<center>
+	<h1>
+		<a href="#" class="button" onclick="mainappear(pwd, department, this);">Enter</a>
+	</h1>
+	</center>
+</div>
+</body>
+<!--========================## end ##===============================================================-->
+
+	<script type="text/javascript" src="{{ url_for('static', filename='javascript.js') }}"></script>

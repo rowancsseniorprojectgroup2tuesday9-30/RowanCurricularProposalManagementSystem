@@ -1,132 +1,142 @@
-<!DOCTYPE html>
-<html>
-<head>
-<body>
-<style>
-	".
-	body
-	{
-		background: #FFF3DD;
-		background-color: #FFF3DD;
-		height: 100%;
-		margin-left: auto;
-		margin-right: auto;
-		margin-top: 0px;
-		font-family: Arial;
-	}
-	
-	html
-	{
-		background: #FFF3DD;
-		background-color: #FFF3DD;
-		height: 100%;
-		margin-left: auto;
-		margin-right: auto;
-		margin-top: 0px;
-		font-family: Arial;
-	}
-	
-	div 
-	{
-		height: 100px;
-		width: 1000px;
-		padding: 10px;
-		border: 5px solid #57150B;
-		border-top: 50px solid #57150B;
-		margin-top: 0px;
-		margin-left: auto;
-		margin-right: auto;
-	}
+body
+{
+    background: #FFF3DD;
+    background-color: #FFF3DD;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0px;
+    font-family: Arial;
+}
 
-	.button 
-	{
-		background-color: #57150B;
-		border: none;
-		color: #FFDD4D;
-		padding: 15px 32px;
-		text-align: center;
-		text-decoration: none;
-		display: inline-block;
-		font-size: 16px;
-		margin: 4px 2px;
-		cursor: pointer;
-	}
+html
+{
+    background: #FFF3DD;
+    background-color: #FFF3DD;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0px;
+    font-family: Arial;
+}
 
-	.input
-	{
-		background-color: #57150B;
-		border: none;
-		color: #FFDD4D;
-		padding: 15px 32px;
-		text-align: center;
-		text-decoration: none;
-		display: inline-block;
-		font-size: 16px;
-		margin: 4px 2px;
-		cursor: pointer;
-	}
+#mainbody 
+{
+    height: 100px;
+    width: 1000px;
+    padding: 10px;
+    border: 5px solid #57150B;
+    border-top: 50px solid #57150B;
+    margin-top: 0px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
-	h1 
-	{ 
-		color: #57150B;
-		margin-left: auto;
-		margin-right: auto;
-	}
+.button 
+{
+    background-color: #57150B;
+    border: none;
+    color: #FFDD4D;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
 
-	h2 
-	{ 
-		color: #57150B; 
-		margin-left: auto;
-		margin-right: auto;
-	}
-	
-	h3 
-	{ 
-		color: #57150B; 
-		margin-left: auto;
-		margin-right: auto;
-	}
+.navbox{
+    width: 65em;
+    display: flex;
+    border-radius: 25px;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: #40e0d0;
+}
+.nav {
+    margin: 0 auto;
+    display: inline;
+    overflow: hidden;
+    font-family: Arial;
+}
+.nav a {
+    margin:0 auto;
+    border-radius: 25px;
+    float: left;
+    font-size: 16px;
+    color: #000;
+    background-color: #40e0d0;
+    text-align: center;
+    padding: 10px 16px;
+    text-decoration: none;
+}
 
-	h4 
-	{ 
-		color: #57150B; 
-		margin-left: auto;
-		margin-right: auto;
-	}
+.input
+{
+    background-color: #57150B;
+    border: none;
+    color: #FFDD4D;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
 
-	.tablink 
-	{
-		background-color: #57150B;
-		color: #FFCC00;
-		float: left;
-		border: none;
-		outline: none;
-		cursor: pointer;
-		padding: 14px 16px;
-		font-size: 17px;
-		width: 25%;
-	}
+h1 
+{ 
+    color: #57150B;
+    margin-left: auto;
+    margin-right: auto;
+}
 
-	.tablink:hover 
-	{
-		background-color: #FFCC00;
-		color: #57150B;
-	}
+h2 
+{ 
+    color: #57150B; 
+    margin-left: auto;
+    margin-right: auto;
+}
 
-	.tabcontent 
-	{
-		color: #57150B;
-		display: none;
-		padding: 20px 20px;
-		height: auto;
-	}
+h3 
+{ 
+    color: #57150B; 
+    margin-left: auto;
+    margin-right: auto;
+}
 
-#Home {background-color: white;}
-#Download {background-color: white;}
-#Upload {background-color: white;}
-#Status {background-color: white;}
-"
-</style>
-</body>
-</head>
-</html>
+h4 
+{ 
+    color: #57150B; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tablink 
+{
+    background-color: #57150B;
+    color: #FFCC00;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+    width: 25%;
+}
+
+.tablink:hover 
+{
+    background-color: #FFCC00;
+    color: #57150B;
+}
+
+.tabcontent 
+{
+    color: #57150B;
+    /* display: none; */
+    padding: 20px 20px;
+    height: auto;
+}

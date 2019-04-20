@@ -1,47 +1,14 @@
-"""
------------------------------------------------------------------------------
-
-Rowan Computer Science Dept Spring 2019 Senior Project Team
-Rowan Curricular Proposal Mangagement System for Jack Myers rowan
-
-Senior Team Members:
-Team Lead:  John Kubach
- Scrum Master:  Joshua Jackson
-    Developer:  Alex Kulplin
-    Developer:  Jeffrey Podwats
-    Developer:  Alaina Smith
-    Developer:  Kyle Butera
-
------------------------------------------------------------------------------
-
-Description:
- This is the code for uploading necessary images to web page
-
- Last edit: 4/3/19
------------------------------------------------------------------------------
-"""
-
-#==========================imports===============================================
-# Imports that are need will go in this box
 import os
 import subprocess
 import img2pdf
-#========================end=====================================================
-
-#=================connection=====================================================
-# This will connect the back front end to the database setting flask up box
 from flask import Flask, request, redirect, url_for, send_from_directory, \
-    render_template
+render_template, session
 from flaskext.mysql import MySQL
 from werkzeug import secure_filename
-#====================end==========================================================
 
-#======================varibles for uploading=====================================
 UPLOAD_FOLDER = '/tmp/upload'
 ALLOWED_EXTENSIONS = set(['pdf', 'docx'])
-#==========================end====================================================
 
-#===================================================================================
 app = Flask(__name__)
 mysql = MySQL()
 app.config['MYSQL_DATABASE_USER'] = 'root'
@@ -50,26 +17,40 @@ app.config['MYSQL_DATABASE_DB'] = 'curricular_management'
 app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 mysql.init_app(app)
 
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-#===================end=============================================================
 
-#=================Checks file to see if allowed=====================================
-#
+# cursor.execute("SELECT * from proposal")
+# data = cursor.fetchone()
+
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
-#=======================end=========================================================
-
-#=============================================================================
-#
 
 @app.route("/", methods=['GET', 'POST'])
 def index():
     conn = mysql.connect()
-    cursor = conn.cursor()
+    cursor =conn.cursor()
+    if not session.get('logged_in'):
+        return render_template('login.html')
+        
+    return render_template('index.html')
+
+@app.route("/login", methods=['GET')
+def login():
+    return render_template('login.html')
+
+@app.route("/create")
+def createProposal():
+    return render_template('create.html')
+
+@app.route("/upload", methods=['GET', 'POST'])
+def uploadpage():
+    conn = mysql.connect()
+    cursor =conn.cursor()
     if request.method == 'POST':
         file = request.files['file']
-        doctype = request.form.get('doc_select')
+        doctype = request.form.get('doc_select') 
         uname = "Kubach"
 
         if doctype == "-a":
@@ -87,26 +68,62 @@ def index():
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 
+            # doctype = request.form.get('doc_select') 
+
             if filename.endswith('.pdf'):
+                # doctype = "-s"
                 cmd = "./archiver.sh -n " + uname + " -f " + filename + " " + doctype
 
             if filename.endswith('.docx'):
                 conv = "soffice --convert-to pdf /tmp/" + filename + " --outdir " + UPLOAD_FOLDER + " --headless"
                 subprocess.call(conv, shell=True)
-                cmd = "./archiver.sh -n " + uname + " -f " + filename.replace(".docx", ".pdf") + " " + doctype
+                uname = "Kubach"
+                # doctype = "-s"
+                cmd = "./archiver.sh -n " + uname + " -f " + filename.replace(".docx",".pdf") + " " + doctype
 
             if filename.endswith('png'):
                 conv = "convert" + filename + " --path " + UPLOAD_FOLDER + " --headless"
                 subprocess.call(conv, shell=True)
-
+                
             newFilename = subprocess.Popen(cmd, stdout=subprocess.PIPE, shell=True)
             cursor.execute(sql_query, newFilename.stdout.readlines()[0].strip())
             conn.commit()
 
-            return redirect(url_for('index', doctype=doctype))
+            return redirect(url_for('uploadpage', doctype = doctype))
     return render_template('index.html')
+    #return ('', 204)
 
+@app.route("/download", methods=['GET', 'POST'])
+def downloadpage():
+    if request.method == 'POST':
+        prop = request.form.get('select_down_prop')
+        selectDoc = request.form.get('select_doc')
+
+        if selectDoc == "-a":
+            sql_query = """SELECT assessement_form_file_path FROM assessement_form_revision WHERE assessement_form_id = %s"""
+        elif selectDoc == "-l":
+            sql_query = """SELECT library_form_file_path FROM library_form_revision WHERE library_form_id = %s"""
+        elif selectDoc == "-s":
+            sql_query = """SELECT assessement_form_file_path FROM assessement_form_revision WHERE assessement_form_id = %s"""
+        elif selectDoc == "-p":
+            sql_query = """SELECT assessement_form_file_path FROM assessement_form_revision WHERE assessement_form_id = %s"""
+        elif selectDoc == "-c":
+            sql_query = """SELECT assessement_form_file_path FROM assessement_form_revision WHERE assessement_form_id = %s"""
+
+    elif request.method == 'GET':
+        selectVer = request.form.get('select_version')
+        #uploads = os.path.join(current_app.root_path, app.config['UPLOAD_FOLDER'])
+        #return send_file('/tmp/upload/Kubach_Assessement_Form_20190418040324.pdf',mimetype='application/pdf', as_attachment=True)
+        return send_from_directory(directory='/tmp/upload', filename='Kubach_Assessement_Form_20190404151301.pdf', as_attachment=True)
+        #return redirect(url_for('downloadpage', doctype = selectDoc))
+    return send_file('/tmp/upload/Kubach_Assessement_Form_20190404151301.pdf', as_attachment=True)
+    #return send_from_directory(directory=uploads, filename="Kubach_Assessement_Form_20190418040324.pdf", as_attachment=True)
+    #return render_template('index.html')
+    #return render_template('download.html')
+
+@app.route("/Status")
+def statuspage():
+    return ('', 204)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5001, debug=True)
-#=============================================================================
