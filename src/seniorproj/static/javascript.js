@@ -16,9 +16,14 @@ function openPage(pageName, elmnt, color)
 	document.getElementById(pageName).style.display = "block";
 
 	elmnt.style.backgroundColor = color;
+
 }
 
 document.getElementById("defaultOpen").click();
+$(document).ready(function () {
+	$('.check').css('stroke-dashoffset', 0);
+  });
+
 
 function fieldappear(that) 
 {
@@ -101,5 +106,6 @@ function mainappear(pass, dep, that)
 		document.getElementById("fadeableMain").style.display = "none";
 		document.getElementById("fadeableMain2").style.display = "block";
 		alert("wrong password");
-    }
+	}
+	
 }

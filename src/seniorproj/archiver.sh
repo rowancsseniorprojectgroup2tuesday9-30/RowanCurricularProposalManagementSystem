@@ -4,6 +4,8 @@
 TIMESTAMP=$(date +%Y%m%d%H%M%S)
 EMPLOYEE=""
 
+cd /tmp/upload
+
 # Specify document type
 # -s : cover [s]heet
 # -l : [l]ibrary form
