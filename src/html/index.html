@@ -26,16 +26,12 @@ Description:
 
 <body>
 <!--==============$$ Start of buttons $$==================================-->
-
-<div class=navbox>
-    <div class= nav>
-        <a href="index.html" target="">Home</a>
-        <a href="upload.html" target="">Upload Documents</a>
-        <a href="download.html" target="">Manage Documents</a>
-        <a href="status.html" target="">Proposal Status</a>
-    </div>
-    <br><br>
-</div>
+<form action="/navbar" method=POST>
+<button name="home" type=submit class= "tablink">Home</button>
+<button name="upload" type=submit class= "tablink">Upload</button>
+<button name="download" type=submit class= "tablink">Download</button>
+<button name="status" type=submit class= "tablink">Status</button>
+</form>
 
 <!--=============## end ##================================================-->
 
@@ -49,15 +45,20 @@ Description:
 	<h1>Rowan Curricular Proposal Management System</h1>	
 
     <h3> Select an existing proposal </h3> <br>
-    <select name = "prop_select">
-        <option value="p1">Proposal 1</option>
-        <option value="p2">Proposal 2</option>
-        <option value="p3">Proposal 3</option>
-        <option value="p4">Proposal 4</option>
+    <form action="" method=POST>
+    <select name = "proposal">
+		<option disabled selected value> -- Select a Proposal -- </option>
+            {% for p in prop %}
+            <option value="{{ p[0] }}">{{ p[1] }}</option>
+            {% endfor %}
     </select>
     <br>
     <input class="button" type=submit value="Select"> <br>
+    </form>
     <h4> or <a href="{{ url_for('createProposal') }}">create a new one </a></h4>
+    <br>
+    <br>
+    <h4> <a href="{{ url_for('logout') }}">Logout</a></h4>
 
 	</center>
 </div>

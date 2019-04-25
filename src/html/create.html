@@ -6,29 +6,34 @@
 
 <body>
 <!--==============$$ Start of buttons $$==================================-->
-
-<div class=navbox>
-    <div class= nav>
-        <a href="index.html" target="">Home</a>
-        <a href="upload.html" target="">Upload</a>
-        <a href="download.html" target="">Download</a>
-        <a href="status.html" target="">Status</a>
-    </div>
-    <br><br>
-</div>
+<form action="/navbar" method=POST>
+<button name="home" type=submit class= "tablink">Home</button>
+<button name="upload" type=submit class= "tablink">Upload</button>
+<button name="download" type=submit class= "tablink">Download</button>
+<button name="status" type=submit class= "tablink">Status</button>
+</form>
 
 <!--=============## end ##================================================-->
 
 	<!--========= Fields that can be found after entering password ============-->
 	<form action="" method=POST>
-	<center>
-	<h2>
-		<a id="department_name"></a>
-	</h2>
-	</center>
 	
 	<a id="fadeableMain" style="display: block;">
 	
+	<center>
+	<h2>
+        New {{ dept[0] }} Proposal
+	</h2>
+	</center>
+
+	<h4>Proposal Title:
+	<input type="text" name="title"><br>
+	</h4>
+
+	<h4>Proposal Description:
+	<input type="text" name="description"><br>
+	</h4>
+
 	<h4>Sponsor:
 	<input type="text" name="sponsor"><br>
 	</h4>
@@ -74,7 +79,7 @@
 	</h4>
 	
 	<h4>Curriculum Change Proposal Type:
-	<select onchange="fieldappear(this);">
+	<select name=proposal_type onchange="fieldappear(this);">
 		<option disabled selected value> -- select an option -- </option>
 		<option value="form_A">New Course</option>
 		<option value="form_B">Change to Existing Course</option>
@@ -772,6 +777,7 @@
 		<h3>-Consultation Letters (Required)</h3>
 		<h3>-Additional Supporting Documentation</h3>
 	</a>
+    <input class="button" type=submit value=Create>
     </form>
 	
 </div>

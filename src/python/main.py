@@ -1,3 +1,5 @@
+import logging
+logging.basicConfig(level=logging.DEBUG)
 import os
 import subprocess
 import img2pdf
@@ -5,11 +7,14 @@ from flask import Flask, request, redirect, url_for, send_from_directory, \
 render_template, session
 from flaskext.mysql import MySQL
 from werkzeug import secure_filename
+import sys
 
 UPLOAD_FOLDER = '/tmp/upload'
 ALLOWED_EXTENSIONS = set(['pdf', 'docx'])
 
 app = Flask(__name__)
+app.secret_key = 'test'
+
 mysql = MySQL()
 app.config['MYSQL_DATABASE_USER'] = 'root'
 app.config['MYSQL_DATABASE_PASSWORD'] = 'senior'
@@ -18,8 +23,8 @@ app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 mysql.init_app(app)
 
 
-# cursor.execute("SELECT * from proposal")
-# data = cursor.fetchone()
+conn = mysql.connect()
+cursor =conn.cursor()
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
@@ -27,18 +32,38 @@ def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
 
-@app.route("/", methods=['GET', 'POST'])
-def index():
-    conn = mysql.connect()
-    cursor =conn.cursor()
-    if not session.get('logged_in'):
-        return render_template('login.html')
-        
-    return render_template('index.html')
+def set_proposal_session(proposal_id):
+    sql_query = """SELECT assessement_form_id, library_form_id, supporting_document_id, program_guide_id from proposal WHERE proposal_id = %s"""
+    cursor.execute(sql_query, proposal_id)
+    result = cursor.fetchone()
+    session['proposal'] = proposal_id
+    session['assessement'] = result[0]
+    session['library'] = result[1]
+    session['support'] = result[2]
+    session['program'] = result[3]
 
-@app.route("/login", methods=['GET')
+
+@app.route("/", methods=['GET', 'POST', 'PUT'])
+def index():
+    if not session.get('department'):
+        return redirect(url_for('login'))
+
+    cursor.execute("SELECT proposal_id, proposal_title FROM proposal")
+    if request.method == 'POST':
+        prop_id = request.form['proposal']
+        set_proposal_session(prop_id)
+        return redirect(url_for('status'))
+        
+    return render_template('index.html', prop=cursor.fetchall())
+
+@app.route("/login", methods=['GET', 'POST'])
 def login():
-    return render_template('login.html')
+    cursor.execute("SELECT department_id, department_name FROM department")
+    if request.method == 'POST':
+        session['department'] = request.form['department']
+        return redirect(url_for('index'))
+
+    return render_template('login.html', dept=cursor.fetchall())
 
 @app.route("/create")
 def createProposal():
@@ -46,23 +71,26 @@ def createProposal():
 
 @app.route("/upload", methods=['GET', 'POST'])
 def uploadpage():
-    conn = mysql.connect()
-    cursor =conn.cursor()
     if request.method == 'POST':
         file = request.files['file']
         doctype = request.form.get('doc_select') 
-        uname = "Kubach"
+        uname = session['proposal']
 
         if doctype == "-a":
-            sql_query = """INSERT INTO assessement_form_revision (assessement_form_id, assessement_form_file_path, assessement_form_datetime) values (1, %s, NOW())"""
+            doc_id = session['assessement']
+            sql_query = """INSERT INTO assessement_form_revision (assessement_form_id, assessement_form_file_path, assessement_form_datetime) values (%s, %s, NOW())"""
         elif doctype == "-l":
-            sql_query = """INSERT INTO library_form_revision (library_form_id, library_form_file_path, library_form_datetime) values (1, %s, NOW())"""
+            doc_id = session['library']
+            sql_query = """INSERT INTO library_form_revision (library_form_id, library_form_file_path, library_form_datetime) values (%s, %s, NOW())"""
         elif doctype == "-s":
-            sql_query = """INSERT INTO supporting_document_revision (supporting_document_id, supporting_document_file_path, supporting_document_datetime) values (1, %s, NOW())"""
+            doc_id = session['support']
+            sql_query = """INSERT INTO supporting_document_revision (supporting_document_id, supporting_document_file_path, supporting_document_datetime) values (%s, %s, NOW())"""
         elif doctype == "-p":
-            sql_query = """INSERT INTO program_guide_revision (program_guide_id, program_guide_file_path, program_guide_datetime) values (1, %s, NOW())"""
+            doc_id = session['program']
+            sql_query = """INSERT INTO program_guide_revision (program_guide_id, program_guide_file_path, program_guide_datetime) values (%s, %s, NOW())"""
         elif doctype == "-c":
-            sql_query = """INSERT INTO consult_letter_revision (consult_letter_id, consult_letter_file_path, consult_letter_datetime) values (1, %s, NOW())"""
+            #doc_id = session['consult']
+            sql_query = """INSERT INTO consult_letter_revision (consult_letter_id, consult_letter_file_path, consult_letter_datetime) values (%s, %s, NOW())"""
 
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
@@ -90,14 +118,12 @@ def uploadpage():
             conn.commit()
 
             return redirect(url_for('uploadpage', doctype = doctype))
-    return render_template('index.html')
-    #return ('', 204)
+    return render_template('upload.html')
 
 @app.route("/download", methods=['GET', 'POST'])
 def downloadpage():
     if request.method == 'POST':
-        prop = request.form.get('select_down_prop')
-        selectDoc = request.form.get('select_doc')
+        document = request.form.get('document')
 
         if selectDoc == "-a":
             sql_query = """SELECT assessement_form_file_path FROM assessement_form_revision WHERE assessement_form_id = %s"""
@@ -121,9 +147,9 @@ def downloadpage():
     #return render_template('index.html')
     #return render_template('download.html')
 
-@app.route("/Status")
-def statuspage():
-    return ('', 204)
+@app.route("/status")
+def status():
+    return render_template('status.html')
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5001, debug=True)

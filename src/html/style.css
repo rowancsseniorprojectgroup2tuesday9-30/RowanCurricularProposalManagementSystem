@@ -20,7 +20,7 @@ html
     font-family: Arial;
 }
 
-#mainbody 
+div
 {
     height: 100px;
     width: 1000px;
