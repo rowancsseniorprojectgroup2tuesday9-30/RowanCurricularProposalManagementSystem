@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="{{ url_for('static',filename='styles/style.css') }}">
+</head>
+
+<body>
+<!--==============$$ Start of Upload Page $$========================-->
+<form action="/navbar" method=POST>
+<button name="home" type=submit class= "tablink">Home</button>
+<button name="upload" type=submit class= "tablink">Upload</button>
+<button name="download" type=submit class= "tablink">Download</button>
+<button name="status" type=submit class= "tablink">Status</button>
+</form>
+<!––The Upload page––> 
+<div id="Upload" class="tabcontent">
+	<center>
+	<h1>Upload Page</h1>
+	
+	<form action="" method=POST enctype=multipart/form-data>
+    	<h3>Document Type</h3>
+    	<select name = "doc_select">
+    		<option value="-a" selected="selected">Assessement Form</option>
+    		<option value="-l">Library Form</option>
+    		<option value="-s">Supporting Document</option>
+    		<option value="-p">Program Guide</option>
+		<option value="-c">Consultation Letters</option>
+    	</select>
+    
+    	<h3>Attach Files</h3>
+    		<p>
+    		<input type=file name=file>
+    		</p>
+    	<center>
+    	<h1>
+    		<input class="button" type=submit value=Upload>
+    	</h1>
+    	</center>
+    </form>
+</div>
+<!--=======================## end ##==============================================================-->
+</div>
+</body>
+<!--========================## end ##===============================================================-->
+
+	<script type="text/javascript" src="{{ url_for('static', filename='javascript.js') }}"></script>

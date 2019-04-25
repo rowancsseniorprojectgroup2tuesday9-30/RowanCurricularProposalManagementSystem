@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="{{ url_for('static',filename='styles/style.css') }}">
+</head>
+
+<body>
+<!--==============$$ Start of buttons $$==================================-->
+<form action="/navbar" method=POST>
+<button name="home" type=submit class= "tablink">Home</button>
+<button name="upload" type=submit class= "tablink">Upload</button>
+<button name="download" type=submit class= "tablink">Download</button>
+<button name="status" type=submit class= "tablink">Status</button>
+</form>
+
+<!--=============## end ##================================================-->
+
+	<!--========= Fields that can be found after entering password ============-->
+	<form action="" method=POST>
+	
+	<a id="fadeableMain" style="display: block;">
+	
+	<center>
+	<h2>
+        New {{ dept[0] }} Proposal
+	</h2>
+	</center>
+
+	<h4>Proposal Title:
+	<input type="text" name="title"><br>
+	</h4>
+
+	<h4>Proposal Description:
+	<input type="text" name="description"><br>
+	</h4>
+
+	<h4>Sponsor:
+	<input type="text" name="sponsor"><br>
+	</h4>
+	
+	<h4>Sponsor's Email Address:
+	<input type="text" name="sponsor_email"><br>
+	</h4>
+	
+	<h4>Co-Sponsor:
+	<input type="text" name="cosponsor"><br>
+	</h4>
+	
+	<h4>Co-Sponsor's Email Address:
+	<input type="text" name="cosponsor_email"><br>
+	</h4>
+	
+	<h4>Effective Term Year:
+	<select>
+		<option disabled selected value> -- select an option -- </option>
+		<option value="202040">202040 FALL 2020</option>
+		<option value="202020">202020 SPRING 2020</option>
+		<option value="201940">201940 FALL 2019</option>
+		<option value="201920">201920 SPRING 2019</option>
+	</select>
+	</h4>
+	<!--==========## end of fields after login  ##==========-->
+
+	<!---->
+	<h4>Proposing School/College:
+	<select>
+		<option disabled selected value> -- select an option -- </option>
+		<option value="school_buisness">College of Buisness</option>
+		<option value="school_art">College of Com. & Creative Art</option>
+		<option value="school_education">College of Education</option>
+		<option value="school_engineering">College of Engineering</option>
+		<option value="school_humanity">College of Hum. & Soc. Sci.</option>
+		<option value="school_performing">College of Performing Arts</option>
+		<option value="school_math">College of Sci & Math</option>
+		<option value="school_honors">Honors College</option>
+		<option value="school_environment">School of Earth & Environment</option>
+		<option value="school_health">School of Health Professions</option>
+	</select>
+	</h4>
+	
+	<h4>Curriculum Change Proposal Type:
+	<select name=proposal_type onchange="fieldappear(this);">
+		<option disabled selected value> -- select an option -- </option>
+		<option value="form_A">New Course</option>
+		<option value="form_B">Change to Existing Course</option>
+		<option value="form_C">New Degree/ Program</option>
+		<option value="form_D">Change to Existing Degree/ Program</option>
+		<option value="form_E">Accelerated Undergrad/ Grad Dual Degree Program</option>
+		<option value="form_F">Quasi Cerricular Proposal</option>
+	</select>
+	</h4>
+	
+	</a>
+
+	<a id="fadeableA" style="display: none;">
+	
+		<br>
+		<h2>Course Information</h2>
+	
+		<h4>Course Subject:
+		<input type="text" name="course_subject"><br>
+		</h4>
+	
+		<h4>Credit Type:
+		<select>
+			<option disabled selected value> -- select an option -- </option>
+			<option value="ct_fixed">Fixed</option>
+			<option value="ct_variable">Variable</option>
+		</select>
+		</h4>
+		
+		<h4>Grade Mode:
+		<select>
+			<option disabled selected value> -- select an option -- </option>
+			<option value="gm_satisfactory">Satisfactory/Unsatisfactory</option>
+			<option value="gm_pass">Pass/No Credit</option>
+			<option value="gm_regular">Regular (A,B,C,etc.)</option>
+		</select>
+		</h4>
+		
+		<h4>Additional grade mode option/ include explenation:
+		<input type="text" name="additional_grade_mode"><br>
+		</h4>
+		
+		<h4>Course Number:
+		<input type="text" name="course_number"><br>
+		</h4>
+		
+		<h4>Student Credits:
+		<input type="text" name="student_credits"><br>
+		</h4>
+		
+		<h4>Faculty Credits:
+		<input type="text" name="faculty_credits"><br>
+		</h4>
+		
+		<h4>Course Title:
+		<input type="text" name="course_title"><br>
+		</h4>
+		
+		<h4>If student and faculty credits do not match please provide an explanation:
+		<input type="text" name="credit_explanation"><br>
+		</h4>
+		
+		<h4>Prerequisites (Include prefix(es) and title(s) unless there are none, then state NONE):
+		<input type="text" name="prerequisite"><br>
+		</h4>
+		
+		<h4>Co-Requisite(s):
+		<input type="text" name="corequisite"><br>
+		</h4>
+		
+		<h4>
+		<input type="checkbox" name="check1" value="rowan_core">Rowan Core<br>
+		</h4>
+		
+		<h4>
+		<input type="checkbox" name="check2" value="writing_intensive">Writing Intensive<br>
+		</h4>
+		
+		<h4>Course Description:
+		<input type="text" name="course_description"><br>
+		</h4>
+		
+		<h4>
+		<input type="checkbox" name="check3" value="writing_intensive">Could this be offered online or by Rowan Global now or in the future?<br>
+		</h4>
+		
+		<h4>Course Rationale:
+		<input type="text" name="course_rationale"><br>
+		</h4>
+		
+		<br>
+		<h2>Curricular Effect</h2>
+	
+		<h4>Elective/Required:
+		<select>
+			<option disabled selected value> -- select an option -- </option>
+			<option value="elective">Elective</option>
+			<option value="required">Required</option>
+		</select>
+		</h4>
+		
+		<h4>Course Effect for Students:
+		<input type="text" name="course_effect_s"><br>
+		</h4>
+		
+		<h4>Course Effect on Other Courses:
+		<input type="text" name="course_effect_oc"><br>
+		</h4>
+		
+		<h4>Course Effect on Other Programs, Departments or Colleges:
+		<input type="text" name="course_effect_opdc"><br>
+		</h4>
+		
+		<br>
+		<h2>Essence of the Course</h2>
+	
+		<h4>Topical Outline/Content:
+		<input type="text" name="topical_oc"><br>
+		</h4>
+		
+		<h4>Evaluation of Students and Grading Procedure:
+		<input type="text" name="eosagp"><br>
+		</h4>
+		
+		<h4>Course Evaluation and Assessment:
+		<input type="text" name="ceaa"><br>
+		</h4>
+		
+		<br>
+		<h2>Resource Requirements</h2>
+		
+		<h4>Equipment Space Technology:
+		<select>
+			<option disabled selected value> -- select an option -- </option>
+			<option value="est_sufficient">Current Resources are Sufficient</option>
+			<option value="est_needed">Additional Resources are Needed</option>
+		</select>
+		</h4>
+		
+		<h4>Staffing Resources:
+		<select>
+			<option disabled selected value> -- select an option -- </option>
+			<option value="sr_sufficient">Current Resources are Sufficient</option>
+			<option value="sr_needed">Additional Resources are Needed</option>
+		</select>
+		</h4>
+		
+		<h4>Library Resources:
+		<select>
+			<option disabled selected value> -- select an option -- </option>
+			<option value="lr_sufficient">Current Resources are Sufficient</option>
+			<option value="lr_needed">Additional Resources are Needed</option>
+		</select>
+		</h4>
+		
+		<br>
+		<h2>Results of Consultation</h2>
+		
+		<h4>Consultations Required:
+		<select>
+			<option disabled selected value> -- select an option -- </option>
+			<option value="consultations_yes">Yes</option>
+			<option value="consultations_no">No</option>
+		</select>
+		</h4>
+		
+		<br>
+		<h2>Documents</h2>
+		<h3>-Program Guide (Required)</h3>
+		<h3>-Library Resource Form (Required)</h3>
+		<h3>-Assessment (Required)</h3>
+		<h3>-Consultation Letters</h3>
+		<h3>-Additional Supporting Documentation</h3>
+	</a>
+	
+	<a id="fadeableB" style="display: none;">
+	
+		<br>
+		<h2>Course Information</h2>
+	
+		<h4>Course Subject:
+		<input type="text" name="course_subject"><br>
+		</h4>
+	
+		<h4>Course Number:
+		<input type="text" name="course_number"><br>
+		</h4>
+		
+		<h4>Course Title:
+		<input type="text" name="course_title"><br>
+		</h4>
+		
+		<br>
+		<h2>Curricular Effect</h2>
+		
+		<h4>Elective/Required:
+		<select>
+			<option disabled selected value> -- select an option -- </option>
+			<option value="elective">Elective</option>
+			<option value="required">Required</option>
+		</select>
+		</h4>
+		
+		<h4>Course Effect for Students:
+		<input type="text" name="course_effect_s"><br>
+		</h4>
+		
+		<h4>Course Effect on Other Courses:
+		<input type="text" name="course_effect_oc"><br>
+		</h4>
+		
+		<h4>Course Effect on Other Programs, Departments or Colleges:
+		<input type="text" name="course_effect_opdc"><br>
+		</h4>
+		
+		<br>
+		<h2>Changes</h2>
+		
+		<h2>INSERT ADDING NEW COURSE CHANGE BOX WITH A FROM, TO, and EXPLENATION WHY</h2>
+		
+		<br>
+		<h2>Results of Consultations</h2>
+		
+		<h4>Consultations Required:
+		<select>
+			<option disabled selected value> -- select an option -- </option>
+			<option value="consultations_yes">Yes</option>
+			<option value="consultations_no">No</option>
+		</select>
+		</h4>
+		
+		<br>
+		<h2>Documents</h2>
+		<h3>-Program Guide (Required)</h3>
+		<h3>-Library Resource Form</h3>
+		<h3>-Consultation Letters</h3>
+		<h3>-Additional Supporting Documentation</h3>
+	</a>
+	
+	<a id="fadeableC" style="display: none;">
+	
+		<br>
+<!--===================$$ Options for Degree information $$================================-->
+		<h2>Degree Program Information</h2>
+
+		<h4>Degree Program Credentials:
+		<select>
+			<option disabled selected value> -- select an option -- </option>
+			<option value="dpc_ba">B.A.</option>
+			<option value="dpc_bfa">B.F.A.</option>
+			<option value="dpc_bgs">B.G.S.</option>
+			<option value="dpc_bm">B.M.</option>
+			<option value="dpc_bs">B.S.</option>
+			<option value="dpc_bsn">B.S.N.</option>
+			<option value="dpc_cags">CAGS</option>
+			<option value="dpc_certif">Certif</option>
+			<option value="dpc_cogs">COGS</option>
+			<option value="dpc_cugs">CUGS</option>
+			<option value="dpc_edd">Ed.D.</option>
+			<option value="dpc_eds">Ed.S.</option>
+			<option value="dpc_gradcert">Grad. Cert.</option>
+			<option value="dpc_ma">M.A.</option>
+			<option value="dpc_mba">M.B.A.</option>
+			<option value="dpc_mem">M.E.M.</option>
+			<option value="dpc_med">M.Ed.</option>
+			<option value="dpc_mm">M.M.</option>
+			<option value="dpc_ms">M.S.</option>
+			<option value="dpc_msn">M.S.N.</option>
+			<option value="dpc_mst">M.S.T.</option>
+			<option value="dpc_phd">Ph.D.</option>
+			<option value="dpc_phdma">Ph.D. (including M.A.)</option>
+			<option value="dpc_phdms">Ph.D. (including M.S.)</option>
+			<option value="dpc_minor">Minor</option>
+			<option value="dpc_concentration">Concentration</option>
+			<option value="dpc_postbacc">Post-Bacc</option>
+		</select>
+<!--===============## end of options ##=========================================-->
+		</h4>
+		
+		<h4>Degree Program Name:
+		<input type="text" name="degree_program_name"><br>
+		</h4>
+		
+		<h4>Date of BOT Academic Subcommittee Approval:
+		<input type="text" name="degree_program_name"><br>
+		</h4>
+		
+		<h4>
+		<input type="checkbox" name="check3" value="writing_intensive">Could this be offered online or by Rowan Global now or in the future?<br>
+		</h4>
+		
+		<h4>CIP Code Number:
+		<input type="text" name="cip_code_number"><br>
+		</h4>
+		
+		<h4>CIP Title:
+		<input type="text" name="cip_title"><br>
+		</h4>
+		
+		<h4>Scope and Size of Program:
+		<input type="text" name="saso_program"><br>
+		</h4>
+		
+		<h4>Related Curriculum Proposals Being Submitted Simultaneously:
+		<input type="text" name="rcpbss"><br>
+		</h4>
+		
+		<br>
+		<h2>Requirements for Admission & Graduation</h2>
+		
+		<h4>Admission:
+		<input type="text" name="admission"><br>
+		</h4>
+		
+		<h4>Graduation:
+		<input type="text" name="graduation"><br>
+		</h4>
+		
+		<h4>Student Status:
+		<input type="text" name="student_status"><br>
+		</h4>
+		
+		<br>
+		<h2>Rationale</h2>
+		
+		<h4>General Merit of Proposal:
+		<input type="text" name="merit_of_proposal"><br>
+		</h4>
+		
+		<h4>Relationship to Existing Programs of Offerings:
+		<input type="text" name="rtepoo"><br>
+		</h4>
+		
+		<br>
+		<h2>Program Description</h2>
+		
+		<h4>Administration:
+		<input type="text" name="administration"><br>
+		</h4>
+		
+		<h4>Program Evauation:
+		<input type="text" name="program_evaluation"><br>
+		</h4>
+		
+		<br>
+		<h2>Resource Requirements</h2>
+		
+		<h4>Equipment Space Technology:
+		<select>
+			<option disabled selected value> -- select an option -- </option>
+			<option value="est_sufficient">Current Resources are Sufficient</option>
+			<option value="est_needed">Additional Resources are Needed</option>
+		</select>
+		</h4>
+		
+		<h4>Staffing Resources:
+		<select>
+			<option disabled selected value> -- select an option -- </option>
+			<option value="sr_sufficient">Current Resources are Sufficient</option>
+			<option value="sr_needed">Additional Resources are Needed</option>
+		</select>
+		</h4>
+		
+		<h4>Library Resources:
+		<select>
+			<option disabled selected value> -- select an option -- </option>
+			<option value="lr_sufficient">Current Resources are Sufficient</option>
+			<option value="lr_needed">Additional Resources are Needed</option>
+		</select>
+		</h4>
+		
+		<br>
+		<h2>Results of Consultations</h2>
+		
+		<h4>Consultations Requested:
+		<select>
+			<option disabled selected value> -- select an option -- </option>
+			<option value="consultations_yes">Yes</option>
+			<option value="consultations_no">No</option>
+		</select>
+		</h4>
+		
+		<br>
+		<h2>Documents</h2>
+		<h3>-Program Guide (Required)</h3>
+		<h3>-Library Resource Form (Required)</h3>
+		<h3>-Assessment (Required)</h3>
+		<h3>-Consultation Letters</h3>
+		<h3>-Additional Supporting Documentation</h3>
+	</a>
+	
+	<a id="fadeableD" style="display: none;">
+	
+		<br>
+		<h2>Degree Program Information</h2>
+		
+		<h4>Degree Program Credentials:
+		<select>
+			<option disabled selected value> -- select an option -- </option>
+			<option value="dpc_ba">B.A.</option>
+			<option value="dpc_bfa">B.F.A.</option>
+			<option value="dpc_bgs">B.G.S.</option>
+			<option value="dpc_bm">B.M.</option>
+			<option value="dpc_bs">B.S.</option>
+			<option value="dpc_bsn">B.S.N.</option>
+			<option value="dpc_cags">CAGS</option>
+			<option value="dpc_certif">Certif</option>
+			<option value="dpc_cogs">COGS</option>
+			<option value="dpc_cugs">CUGS</option>
+			<option value="dpc_edd">Ed.D.</option>
+			<option value="dpc_eds">Ed.S.</option>
+			<option value="dpc_gradcert">Grad. Cert.</option>
+			<option value="dpc_ma">M.A.</option>
+			<option value="dpc_mba">M.B.A.</option>
+			<option value="dpc_mem">M.E.M.</option>
+			<option value="dpc_med">M.Ed.</option>
+			<option value="dpc_mm">M.M.</option>
+			<option value="dpc_ms">M.S.</option>
+			<option value="dpc_msn">M.S.N.</option>
+			<option value="dpc_mst">M.S.T.</option>
+			<option value="dpc_phd">Ph.D.</option>
+			<option value="dpc_phdma">Ph.D. (including M.A.)</option>
+			<option value="dpc_phdms">Ph.D. (including M.S.)</option>
+			<option value="dpc_minor">Minor</option>
+			<option value="dpc_concentration">Concentration</option>
+			<option value="dpc_postbacc">Post-Bacc</option>
+		</select>
+		</h4>
+		
+		<h4>Degree Program Name:
+		<input type="text" name="degree_program_name"><br>
+		</h4>
+		
+		<h4>Related Curriculum Proposals Being Submitted Simultaneously:
+		<input type="text" name="degree_program_name"><br>
+		</h4>
+		
+		<h4>Four or more changes:
+		<select>
+			<option disabled selected value> -- select an option -- </option>
+			<option value="four_changes_yes">Yes</option>
+			<option value="four_chanes_no">No</option>
+		</select>
+		</h4>
+		
+		<br>
+		<h2>Degree Program Changes</h2>
+		
+		<h4>INSERT ADDING NEW COURSE CHANGE BOX WITH A FROM, TO, and EXPLENATION WHY</h4>
+		
+		<br>
+		<h2>Results of Consultations</h2>
+		
+		<h4>Consultations Requested:
+		<select>
+			<option disabled selected value> -- select an option -- </option>
+			<option value="consultations_yes">Yes</option>
+			<option value="consultations_no">No</option>
+		</select>
+		</h4>
+		
+		<br>
+		<h2>Documents</h2>
+		<h3>-Program Guide (Required)</h3>
+		<h3>-Consultation Letters</h3>
+		<h3>-Additional Supporting Documentation</h3>
+	</a>
+	
+	<a id="fadeableE" style="display: none;">
+		
+		<br>
+		<h2>Degree Program Information</h2>
+		
+		<h4>Undergraduate Degree Program Credential:
+		<select>
+			<option disabled selected value> -- select an option -- </option>
+			<option value="dpc_ba">B.A.</option>
+			<option value="dpc_bfa">B.F.A.</option>
+			<option value="dpc_bgs">B.G.S.</option>
+			<option value="dpc_bm">B.M.</option>
+			<option value="dpc_bs">B.S.</option>
+			<option value="dpc_bsn">B.S.N.</option>
+			<option value="dpc_cags">CAGS</option>
+			<option value="dpc_certif">Certif</option>
+			<option value="dpc_cogs">COGS</option>
+			<option value="dpc_cugs">CUGS</option>
+			<option value="dpc_edd">Ed.D.</option>
+			<option value="dpc_eds">Ed.S.</option>
+			<option value="dpc_gradcert">Grad. Cert.</option>
+			<option value="dpc_ma">M.A.</option>
+			<option value="dpc_mba">M.B.A.</option>
+			<option value="dpc_mem">M.E.M.</option>
+			<option value="dpc_med">M.Ed.</option>
+			<option value="dpc_mm">M.M.</option>
+			<option value="dpc_ms">M.S.</option>
+			<option value="dpc_msn">M.S.N.</option>
+			<option value="dpc_mst">M.S.T.</option>
+			<option value="dpc_phd">Ph.D.</option>
+			<option value="dpc_phdma">Ph.D. (including M.A.)</option>
+			<option value="dpc_phdms">Ph.D. (including M.S.)</option>
+			<option value="dpc_minor">Minor</option>
+			<option value="dpc_concentration">Concentration</option>
+			<option value="dpc_postbacc">Post-Bacc</option>
+		</select>
+		</h4>
+		
+		<h4>Undergraduate Degree Program Name:
+		<input type="text" name="udpn"><br>
+		</h4>
+		
+		<h4>Graduate Degree Program Credential:
+		<select>
+			<option disabled selected value> -- select an option -- </option>
+			<option value="dpc_ba">B.A.</option>
+			<option value="dpc_bfa">B.F.A.</option>
+			<option value="dpc_bgs">B.G.S.</option>
+			<option value="dpc_bm">B.M.</option>
+			<option value="dpc_bs">B.S.</option>
+			<option value="dpc_bsn">B.S.N.</option>
+			<option value="dpc_cags">CAGS</option>
+			<option value="dpc_certif">Certif</option>
+			<option value="dpc_cogs">COGS</option>
+			<option value="dpc_cugs">CUGS</option>
+			<option value="dpc_edd">Ed.D.</option>
+			<option value="dpc_eds">Ed.S.</option>
+			<option value="dpc_gradcert">Grad. Cert.</option>
+			<option value="dpc_ma">M.A.</option>
+			<option value="dpc_mba">M.B.A.</option>
+			<option value="dpc_mem">M.E.M.</option>
+			<option value="dpc_med">M.Ed.</option>
+			<option value="dpc_mm">M.M.</option>
+			<option value="dpc_ms">M.S.</option>
+			<option value="dpc_msn">M.S.N.</option>
+			<option value="dpc_mst">M.S.T.</option>
+			<option value="dpc_phd">Ph.D.</option>
+			<option value="dpc_phdma">Ph.D. (including M.A.)</option>
+			<option value="dpc_phdms">Ph.D. (including M.S.)</option>
+			<option value="dpc_minor">Minor</option>
+			<option value="dpc_concentration">Concentration</option>
+			<option value="dpc_postbacc">Post-Bacc</option>
+		</select>
+		</h4>
+		
+		<h4>Graduate Degree Program Name:
+		<input type="text" name="gdpn"><br>
+		</h4>
+		
+		<h4>Undergraduate CIP Code Number:
+		<input type="text" name="ucip_code_number"><br>
+		</h4>
+		
+		<h4>Undergraduate CIP Title:
+		<input type="text" name="ucip_title"><br>
+		</h4>
+		
+		<h4>Graduate CIP Code Number:
+		<input type="text" name="gcip_code_number"><br>
+		</h4>
+		
+		<h4>Graduate CIP Title:
+		<input type="text" name="gcip_title"><br>
+		</h4>
+		
+		<h4>Scope and Size of Program:
+		<input type="text" name="size_of_program"><br>
+		</h4>
+		
+		<h4>Related Curriculum Proposals Being Submitted Simultaneously:
+		<input type="text" name="rcpbss"><br>
+		</h4>
+		
+		<br>
+		<h2>Requirements for Admission & Graduation</h2>
+		
+		<h4>Admission:
+		<input type="text" name="admission"><br>
+		</h4>
+		
+		<h4>Graduation:
+		<input type="text" name="graduation"><br>
+		</h4>
+		
+		<h4>Student Status:
+		<input type="text" name="student_status"><br>
+		</h4>
+		
+		<br>
+		<h2>Rationale</h2>
+		
+		<h4>General Merit of Proposal:
+		<input type="text" name="merit_of_proposal"><br>
+		</h4>
+		
+		<br>
+		<h2>Program Description</h2>
+		
+		<h4>Program Curriculum:
+		<input type="text" name="administration"><br>
+		</h4>
+		
+		<h4>Administration:
+		<input type="text" name="administration"><br>
+		</h4>
+		
+		<h4>Program Evauation:
+		<input type="text" name="program_evaluation"><br>
+		</h4>
+		
+		<br>
+		<h2>Resource Requirements</h2>
+		
+		<h4>Equipment Space Technology:
+		<select>
+			<option disabled selected value> -- select an option -- </option>
+			<option value="est_sufficient">Current Resources are Sufficient</option>
+			<option value="est_needed">Additional Resources are Needed</option>
+		</select>
+		</h4>
+		
+		<h4>Staffing Resources:
+		<select>
+			<option disabled selected value> -- select an option -- </option>
+			<option value="sr_sufficient">Current Resources are Sufficient</option>
+			<option value="sr_needed">Additional Resources are Needed</option>
+		</select>
+		</h4>
+		
+		<h4>Library Resources:
+		<select>
+			<option disabled selected value> -- select an option -- </option>
+			<option value="lr_sufficient">Current Resources are Sufficient</option>
+			<option value="lr_needed">Additional Resources are Needed</option>
+		</select>
+		</h4>
+		
+		<br>
+		<h2>Results of Consultations</h2>
+		
+		<h4>Consultations Requested:
+		<select>
+			<option disabled selected value> -- select an option -- </option>
+			<option value="consultations_yes">Yes</option>
+			<option value="consultations_no">No</option>
+		</select>
+		</h4>
+		
+		<br>
+		<h2>Documents</h2>
+		<h3>-Program Guide (Required)</h3>
+		<h3>-Consultation Letters</h3>
+		<h3>-Additional Supporting Documentation</h3>
+	</a>
+	
+	<a id="fadeableF" style="display: none;">
+	
+		<br>
+		<h2>Quasi Curricular Proposal</h2>
+		
+		<h4>Quasi Curricular Reason:
+		<select>
+			<option disabled selected value> -- select an option -- </option>
+			<option value="qcr1">Change the name of an existing degree or degree-related 
+								program (BA/BS, MA/MS, Ph.D. or minor, concentration or 
+								any other type of certificate).</option>
+			<option value="qcr2">Dissolve or suspend an existing degree</option>
+			<option value="qcr3">Create or dissolve a department, school or college, or 
+								other academic unit</option>
+			<option value="qcr4">Move a department from one college to another college or 
+								academic unit</option>
+			<option value="qcr5">Change the name or structure of a department, school or 
+								college, or academic unit</option>
+			<option value="qcr6">Change curriculum approval processes</option>
+		</select>
+		</h4>
+		
+		<br>
+		<h2>Rationale</h2>
+		
+		<h4>General Merit of Proposal:
+		<input type="text" name="merit_of_proposal"><br>
+		</h4>
+		
+		<br>
+		<h2>Curricular Effect</h2>
+		
+		<h4>Course Effect on Other Programs, Departments or Colleges:
+		<input type="text" name="course_effect_opdc"><br>
+		</h4>
+		
+		<br>
+		<h2>Documents</h2>
+		<h3>-Program Guide</h3>
+		<h3>-Library Resource Form</h3>
+		<h3>-Assessment</h3>
+		<h3>-Consultation Letters (Required)</h3>
+		<h3>-Additional Supporting Documentation</h3>
+	</a>
+    <input class="button" type=submit value=Create>
+    </form>
+	
+</div>
+</body>
+<!--========================## end ##===============================================================-->
+
+	<script type="text/javascript" src="{{ url_for('static', filename='javascript.js') }}"></script>

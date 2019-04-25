@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="{{ url_for('static',filename='styles/style.css') }}">
+</head>
+
+<body>
+<!--=================$$ Start Of Download $$===========================-->
+<form action="/navbar" method=POST>
+<button name="home" type=submit class= "tablink">Home</button>
+<button name="upload" type=submit class= "tablink">Upload</button>
+<button name="download" type=submit class= "tablink">Download</button>
+<button name="status" type=submit class= "tablink">Status</button>
+</form>
+
+<!––The Download page––> 
+<div id="Download" class="tabcontent">
+	<center>
+	<h1>Download Page</h1>
+	
+	<h3>Document Type</h3>
+	
+	<form action="" method=POST>
+	<select name="document">
+		<option disabled selected value> -- select an option -- </option>
+    		<option value="-a">Assessement Form</option>
+    		<option value="-l">Library Form</option>
+    		<option value="-s">Supporting Document</option>
+    		<option value="-p">Program Guide</option>
+		<option value="-c">Consultation Letters</option>
+    </select>
+    <br>
+    <input class="button" type=submit value=Select>
+    </form>
+
+    <br>
+    <br>
+	<h3>Version</h3>
+
+	<form action="" method=GET>
+	<select name = "revision">
+        {% if doc != "-c" %}
+        {% for r in revision %}
+            <option value="{{ r[0] }}">Version {{ loop.index }}</option>
+        {% endfor %}
+        {% else %}
+        {% for r in revision %}
+            <option value="{{ r[0] }}">Consultation Letter {{ loop.index }}</option>
+        {% endfor %}
+        {% endif %}
+	</select>
+    <br>
+    <input class="button" type=submit value=Download>
+    </form>
+
+	</center>
+</div>
+<!--====================## end ##===========================-->
+	<script type="text/javascript" src="{{ url_for('static', filename='javascript.js') }}"></script>

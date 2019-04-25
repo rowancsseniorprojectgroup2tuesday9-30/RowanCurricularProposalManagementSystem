@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="{{ url_for('static',filename='styles/style.css') }}">
+</head>
+
+<body>
+<!--==============$$ Start of buttons $$==================================-->
+
+
+<!--=============## end ##================================================-->
+<div id="Home" class="tabcontent">
+	<!--===== Options for your deparment choice so you can login =======-->
+    <center>
+	<h4>Select Your Department:
+	<form action="" method=POST>
+        <select name = "department">
+		<option disabled selected value> -- Select a Department -- </option>
+            {% for d in dept %}
+            <option value="{{ d[0] }}">{{ d[1] }}</option>
+            {% endfor %}
+        </select>
+	</h4>
+    <input class="button" type=submit value="Submit"> <br>
+	</center>
+    </form>
+</div>
+</body>
+<!--========================## end ##===============================================================-->
+
+	<script type="text/javascript" src="{{ url_for('static', filename='javascript.js') }}"></script>
